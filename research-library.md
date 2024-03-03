@@ -14,5 +14,6 @@ An interconnected library of papers I've read.
       <br>{{ post.date | date: "%B %d, %Y" }}
       <br>{{ post.summary }}
     </li>
+    <br>
   {% endfor %}
 </ul>
