@@ -1,6 +1,6 @@
 ---
 layout: page
-title: CV
+title: 
 ---
 
 <img src="/assets/images/luke-byrne.jpg" alt="Luke Byrne" style="width: 25%;"/>

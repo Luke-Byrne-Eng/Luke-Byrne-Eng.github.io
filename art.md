@@ -4,12 +4,16 @@ title: Art
 permalink: /art/
 ---
 
-## Digital Art Projects
-
 Here are some weird digital art projects I'm working on:
 
-![Project Image](/path/to/image.jpg)
-**Project Name**
-*Description and insights about the project.*
-
-...
+<h1>{{ page.title }}</h1>
+<ul>
+  {% for post in site.categories.art %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      - {{ post.date | date: "%B %d, %Y" }}
+      <br>
+      {{ post.summary }}
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,92 @@
+---
+layout: post
+title:  "Wake"
+date:   2024-03-02 21:05:00 +0000
+categories: art
+summary: ""
+---
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.110.0/build/three.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    const geometry = new THREE.PlaneGeometry(100, 100, 32, 32);
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+    camera.position.z = 50;
+
+
+    geometry.verticesNeedUpdate = true; // Allows vertices to be updated
+
+    // const material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true });
+
+    const vertexShader = `
+    varying float vHeight;
+    void main() {
+        vHeight = position.z; // Pass the z-height to the fragment shader
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+    }
+    `;
+
+    const fragmentShader = `
+    varying float vHeight;
+    void main() {
+        // Simple mapping of z-height to the blue color component
+        gl_FragColor = vec4(1.0 - vHeight * 0.2, 1.0 - vHeight * 0.2, 1.0, 1.0);
+    }
+    `;
+
+    const material = new THREE.ShaderMaterial({
+      vertexShader: vertexShader,
+      fragmentShader: fragmentShader,
+      wireframe: true // Optional: for visibility
+    });
+
+    const plane = new THREE.Mesh(geometry, material);
+    scene.add(plane);
+
+    let mouse = new THREE.Vector2();
+    let raycaster = new THREE.Raycaster();
+
+
+    document.addEventListener('mousemove', (event) => {
+        // Convert mouse position to normalized device coordinates (-1 to +1)
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+
+        // Update the picking ray with the camera and mouse position
+        raycaster.setFromCamera(mouse, camera);
+
+        // Calculate objects intersecting the picking ray
+        const intersects = raycaster.intersectObject(plane);
+
+        if (intersects.length > 0) {
+            const point = intersects[0].point;
+            geometry.vertices.forEach(vertex => {
+                let localPoint = plane.worldToLocal(vertex.clone());
+                let dist = localPoint.distanceTo(point);
+                if (dist < 10) {
+                    vertex.z = 10 - dist; // Simple disturbance effect
+                }
+            });
+            geometry.verticesNeedUpdate = true;
+        }
+    });
+
+    function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+
+        // Gradually reset the plane to its original flat state
+        geometry.vertices.forEach(vertex => {
+            vertex.z -= vertex.z*0.1;
+        });
+        geometry.verticesNeedUpdate = true;
+    }
+    animate();
+});
+</script>

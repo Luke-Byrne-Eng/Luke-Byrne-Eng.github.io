@@ -4,10 +4,15 @@ title: Research Library
 permalink: /research-library/
 ---
 
-## Research Library
-
 An interconnected library of papers I've read.
 
-[Link to Zotero Library](#)
-
-...
+<h1>{{ page.title }}</h1>
+<ul>
+  {% for post in site.categories.research %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <br>{{ post.date | date: "%B %d, %Y" }}
+      <br>{{ post.summary }}
+    </li>
+  {% endfor %}
+</ul>
