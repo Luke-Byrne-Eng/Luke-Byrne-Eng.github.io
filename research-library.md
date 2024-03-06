@@ -6,9 +6,11 @@ permalink: /research-library/
 
 A collection of papers I have read and liked. 
 
-<script src="https://unpkg.com/compromise"></script>
 
 <script>
+  // Load the precomputed word-to-posts map
+  const wordToPostsMap = {{ site.data.wordToPostsMap | jsonify }};
+
   var postsData = [
     {% for post in site.categories.research %}
       {
@@ -20,118 +22,6 @@ A collection of papers I have read and liked.
     {% endfor %}
   ];
 
-  var stopwords = ["algorithm", "model", "data", "results", "performance", "approach", "method", "system", "application", "technique", "framework", "analysis", "study", "research", "evaluation", "implementation", "experiment", "proposal", "contribution", "work", "process", "development", "use", "effect", "impact", "field", "area", "purpose", "goal", "objective", "introduction", "background", "conclusion", "discussion", "literature", "review", "theory", "practice", "methodology", "findings", "context", "concept", "aspect", "issue", "challenge", "opportunity", "strategy", "solution", "improvement", "potential", "significance", "benefit", "aim", "hypothesis", "question", "answer", "explanation", "experimentation", "validation", "verification", "assessment", "computation", "calculation", "inference", "learning", "training", "testing", "extraction", "representation", "integration", "transition", "scaling", "deployment", "publication", "citation", "introduce", "enhance", "paper", "show", "train", "our", "its", "improve", "better", "further", "novel", "achieve", "enhance", "advance", "innovate", "superior", "significant", "state-of-the-art", "cutting-edge", "leading-edge", "breakthrough", "pioneering", "incremental", "substantial", "remarkable", "exceed", "surpass", "refine", "upgrade", "revolutionize", "progress", "development", "innovation", "efficiency", "effectiveness", "productivity", "capability", "competence", "performance", "quality", "excellence", "precision", "accuracy", "viability", "feasibility", "intuitive", "streamline", "simplify", "enhancement", "improvement", "advancement", "benefit", "gain", "boost", "elevate", "heighten", "intensify", "strengthen", "deepen", "broaden", "expand", "extend", "enlarge", "increase", "maximize", "outperform", "demonstrate", "task", "which", "include", "test", "result", "not", "compare", "input", "output", "be", "offer", "propose", "reduce", "art", "error", "enable", "maintain", "do", "suggest", "address", "find", "need", "less", "methods", "allow", "show", "provide", "use", "support", "apply", "achieve", "consider", "indicate", "reveal", "display", "present", "utilize", "examine", "investigate", "observe", "determine", "assess", "measure", "evaluate", "describe", "explain", "discuss", "report", "conduct", "implement", "develop", "create", "design", "formulate", "build", "construct", "produce", "synthesize", "derive", "modify", "enhance", "improve", "increase", "decrease", "expand", "limit", "restrict", "adjust", "manage", "solve", "overcome", "tackle", "target", "aim", "focus", "prioritize", "emphasize", "highlight", "feature", "specify", "detail", "clarify", "summarize", "conclude", "predict", "estimate", "project", "anticipate", "expect", "assume", "hypothesize", "theorize", "model", "simulate", "replicate", "validate", "verify", "confirm", "justify", "rationalize", "interpret", "analyze", "survey", "research", "study", "investigation", "examination", "inquiry", "probe", "exploration", "analysis", "assessment", "evaluation", "appraisal", "interpretation", "perception", "observation", "insight", "understanding", "knowledge", "comprehension", "appreciation", "learning", "acquisition", "mastery", "expertise", "skill", "proficiency", "capability", "capacity", "competence", "efficiency", "effectiveness", "productivity", "performance", "execution", "operation", "action", "activity", "process", "procedure", "practice", "technique", "method", "approach", "strategy", "tactic", "plan", "program", "campaign", "initiative", "measure", "intervention", "procedure", "protocol", "guideline", "standard", "criterion", "benchmark", "marker", "reference", "index", "indicator", "signal", "sign", "clue", "hint", "evidence", "proof", "testimony", "confirmation", "verification", "validation", "authentication", "corroboration", "substantiation", "ratification", "endorsement", "approval", "acceptance", "consent", "agreement", "acquiescence", "compliance", "conformity", "adherence", "observance", "abidance", "harmony", "coordination", "integration", "unification", "consolidation", "merger", "range", "scale", "model", "prototype", "archetype", "paradigm", "exemplar", "ideal", "standard", "benchmark", "criterion", "reference", "guide", "direction", "advice", "recommendation", "suggestion", "proposal", "plan", "strategy", "approach", "method", "technique", "tactic", "maneuver", "move", "action", "activity", "endeavor", "effort", "attempt", "trial", "experiment", "test", "models", "size", "non", "mitigate", "rate", "when", "prevent", "sample", "lead", "like", "function", "explore", "key", "make", "tasks", "require", "level", "mechanism", "number", "example", "instance", "one", "capture", "sucess", "speed", "set", "where", "struggle", "inputs", "encourage", "preserve", "understand", "top", "bottom", "middle", "learn", "self", "shift", "unit", "network", "neural", "networks", "architecture", "sucess", "change", "finding", "base", "small", "large", "tiny", "code", "state", "success", "how", "facilitate", "computer", "source",
-  "establish", "k", "rely", "processing", "alternative", "problem", "type", "architectures", "importance", "involves", "reach", "perform", "property", "remain", "necessity", "establish", "have", "a", "b", "c", "adjustment", "start", "end", "discovery", "advancements", "employ", "leverage", "image", "that", "category", "lose", "identify", "minimize", "reduction", "resource", "modification", "variation", "variant", "scheme", "integrate", "drive", "call", "content", "it39", "strength", "demand", "affect", "prove", "principle", "scenario", "view", "exhibit", "analysi", "interaction", "excel", 
-  ];
-
-  const wordMappings = {
-    "transformers": "transformer",
-    "distill": "distillation", 
-    "outofdistribution": "distribution",
-    "conv": "convolution",
-    "convolve": "convolution",
-    "convolutional": "convolution",
-    "adapt": "adaptive",
-    "adaptation": "adaptive",
-    "combine": "combination",
-    "invariant": "invariance", 
-    "shoot": "shot",
-    "tune": "tuning",
-    "autoencoders": "autoencoder",
-    "cnns": "cnn",
-    "masked": "mask",
-    "masking": "mask",
-    "vits": "vit",
-    "datasets": "dataset",
-    "images": "image",
-    "regularize": "regularization",
-    "generalize": "generalization",
-    "detect": "detection",
-    "supervise": "supervision",
-    "supervised": "supervision",
-    "segment": "segmentation",
-    "robust": "robustness",
-    "optimize": "optimization",
-    "augment": "augmentation",
-    "layernorm": "layer normalization",
-    "batchnorm": "batch normalization",
-    "groupnorm": "group normalization",
-    "instancenorm": "instance normalization",
-    "norm": "normalization",
-  };
-
-  function preprocessText(text) {
-      var doc = nlp(text.toLowerCase());
-      doc = doc.normalize();
-
-      // Change tenses
-      doc.verbs().toInfinitive();
-      doc.nouns().toSingular();
-
-      // Remove insignificant words
-      doc = doc.remove('#Determiner')
-                .remove('#Preposition')
-                .remove('#Conjunction')
-                .remove('#Pronoun')
-                .remove('#Auxiliary')
-                .remove('#Interjection')
-                .remove('#Adjective')
-                .remove('#Article')
-                .remove('#Particle')
-                .remove('#Participle')
-                .remove('#Modal')
-                .remove('#Copula')
-                .remove('#Adverb')
-                .remove('#Date')
-                .remove('#Value')
-                ;
-
-      doc.compute('root');
-
-      // Remove punctuation and split into words
-      var words = doc.text('root')
-                    .replace(/[^\w\s]|_/g, '')
-                    .replace(/\s+/g, ' ')
-                    .split(' ')
-                    .filter(word => word && isNaN(word));
-
-      // Apply custom mapping
-      words = words.map(word => wordMappings[word] || word);
-
-      // Remove stopwords
-      words = words.filter(word => !stopwords.includes(word));
-
-      return words;
-  }
-
-</script>
-
-<script>
-
-function countWordFrequencies(postsData) {
-  const wordToPostsMap = {};
-
-  postsData.forEach(post => {
-    const words = preprocessText(post.summary + post.title);
-    words.forEach(word => {
-      if (!wordToPostsMap[word]) {
-        wordToPostsMap[word] = [];
-      }
-      // Check and add the post if it hasn't been added for the word
-      if (!wordToPostsMap[word].find(p => p.url === post.url)) {
-        wordToPostsMap[word].push({
-          title: post.title,
-          url: post.url,
-          date: post.date, // Include the date
-          summary: post.summary // Include the summary
-        });
-      }
-    });
-  });
-  return wordToPostsMap;
-}
-
-const wordToPostsMap = countWordFrequencies(postsData);
 
 function displayAllPosts() {
   const postsContainer = document.getElementById('posts-container');
@@ -148,6 +38,7 @@ function displayAllPosts() {
     
     const postDate = document.createElement('div');
     postDate.innerText = post.date;
+    postDate.className = 'date-italic';
     
     const postSummary = document.createElement('div');
     postSummary.innerText = post.summary;
@@ -210,8 +101,16 @@ function displayPostsForWord(word) {
   if (!postsContainer) return;
   postsContainer.innerHTML = ''; // Clear previous content
   
-  const relatedPosts = wordToPostsMap[word];
+  let relatedPosts = wordToPostsMap[word];
   if (relatedPosts && relatedPosts.length > 0) {
+    // Sort posts by date
+    relatedPosts = relatedPosts.sort((a, b) => {
+      // Assuming the date is in a format like "5 Jun 2017"
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateB - dateA; // Sort in descending order (newest first)
+    });
+
     const listElement = document.createElement('ul');
     relatedPosts.forEach(post => {
       const postItem = document.createElement('li');
@@ -222,6 +121,7 @@ function displayPostsForWord(word) {
       
       const postDate = document.createElement('div');
       postDate.innerText = post.date;
+      postDate.className = 'date-italic';
       
       const postSummary = document.createElement('div');
       postSummary.innerText = post.summary;
@@ -240,7 +140,32 @@ function displayPostsForWord(word) {
   }
 }
 
+
 </script>
+
+<head>
+  <!-- Other head elements -->
+  <style>
+    #word-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      text-align: justify;
+      line-height: 0.9;
+    }
+    #word-cloud span {
+      margin-right: 4px; /* Horizontal spacing between words */
+      margin-left: 4px; /* Horizontal spacing between words */
+      margin-top: 4px; /* Vertical spacing between lines of words */
+      margin-bottom: 4px; /* Vertical spacing between lines of words */
+    }
+    .date-italic {
+      font-style: italic;
+    }
+  </style>
+</head>
+
 
 <div id="word-cloud"></div>
 <button id="show-all-posts">Show All Posts</button>
