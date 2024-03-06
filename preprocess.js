@@ -3,7 +3,7 @@ const path = require('path');
 const nlp = require('compromise');
 const matter = require('gray-matter');
 
-const postsDirectory = path.join(__dirname, '_posts');
+const postsDirectory = path.join(__dirname, '_posts/research');
 const outputDirectory = path.join(__dirname, '_data');
 
 const stopwords = ["algorithm", "model", "data", "results", "performance", "approach", "method", "system", 
@@ -46,7 +46,7 @@ const stopwords = ["algorithm", "model", "data", "results", "performance", "appr
 "guide", "direction", "advice", "recommendation", "suggestion", "proposal", "plan", "strategy", "approach", "method", 
 "technique", "tactic", "maneuver", "move", "action", "activity", "endeavor", "effort", "attempt", "trial", "experiment", 
 "test", "models", "size", "non", "mitigate", "rate", "when", "prevent", "sample", "lead", "like", "function", "explore", 
-"key", "make", "tasks", "require", "level", "mechanism", "number", "example", "instance", "one", "capture", "sucess", 
+"key", "make", "tasks", "require", "level", "mechanism", "number", "example", "one", "capture", "sucess", 
 "speed", "set", "where", "struggle", "inputs", "encourage", "preserve", "understand", "top", "bottom", "middle", "learn", 
 "self", "shift", "unit", "network", "neural", "networks", "architecture", "sucess", "change", "finding", "base", "small", 
 "large", "tiny", "code", "state", "success", "how", "facilitate", "computer", "source", "establish", "k", "rely", 
@@ -54,7 +54,7 @@ const stopwords = ["algorithm", "model", "data", "results", "performance", "appr
 "remain", "necessity", "establish", "have", "a", "b", "c", "adjustment", "start", "end", "discovery", "advancements", 
 "employ", "leverage", "image", "that", "category", "lose", "identify", "minimize", "reduction", "resource", "modification", 
 "variation", "variant", "scheme", "integrate", "drive", "call", "content", "it39", "strength", "demand", "affect", "prove", 
-"principle", "scenario", "view", "exhibit", "analysi", "interaction", "excel", 
+"principle", "scenario", "view", "exhibit", "analysi", "interaction", "excel", "no", 
 ];
 const wordMappings = {
     "transformers": "transformer",
@@ -125,12 +125,18 @@ function preprocessText(text) {
             .remove('#Value')
             ;
 
-  // Remove punctuation and split into words
-  let words = doc.out('array');
+  doc.compute('root');
 
-  // Further processing based on your client-side logic
-  words = words.map(word => wordMappings[word] || word).filter(word => !stopwords.includes(word) && isNaN(word));
+  // Split into words, remove punctuation, and filter non-word entities
+  let words = doc.text('root')
+                 .replace(/[^\w\s]|_/g, '') // Remove punctuation
+                 .replace(/\s+/g, ' ') // Collapse whitespace
+                 .split(' ')
+                 .filter(word => word && !word.match(/^\W+$/) && isNaN(word)); // Filter out non-words and numbers
 
+  // Apply custom mappings and remove stopwords
+  words = words.map(word => wordMappings[word] || word)
+               .filter(word => !stopwords.includes(word));
 
   return words;
 }
@@ -142,26 +148,29 @@ fs.readdirSync(postsDirectory).forEach(file => {
     const filePath = path.join(postsDirectory, file);
     // Check if the path is a file
     if (fs.statSync(filePath).isFile()) {
-      const fileContents = fs.readFileSync(filePath, 'utf8');
-      const { data: frontMatter, content } = matter(fileContents);
-  
-      if (frontMatter.categories && frontMatter.categories.includes('research')) {
-        // Assuming preprocessText function is defined elsewhere
-        const words = preprocessText(`${frontMatter.title} ${content}`);
-        words.forEach(word => {
-          if (!wordToPostsMap[word]) {
-            wordToPostsMap[word] = [];
-          }
-          wordToPostsMap[word].push({
-            title: frontMatter.title,
-            url: filePath.replace(postsDirectory, '').replace(/\\/g, '/'), // Ensure URL format is consistent
-            date: frontMatter.date, // Ensure date format is consistent
-            summary: frontMatter.summary // Assume 'summary' exists in front matter
-          });
-        });
-      }
+        const fileContents = fs.readFileSync(filePath, 'utf8');
+        const { data: frontMatter } = matter(fileContents);
+
+        if (frontMatter.categories && frontMatter.categories.includes('research')) {
+            const words = preprocessText(`${frontMatter.title} ${frontMatter.summary}`);
+            words.forEach(word => {
+                if (!wordToPostsMap[word]) {
+                    wordToPostsMap[word] = [];
+                }
+                // Check if the post is already in the array for this word
+                const postExists = wordToPostsMap[word].some(post => post.url === filePath.replace(postsDirectory, '').replace(/\\/g, '/'));
+                if (!postExists) {
+                    wordToPostsMap[word].push({
+                        title: frontMatter.title,
+                        url: filePath.replace(postsDirectory, '').replace(/\\/g, '/'),
+                        date: frontMatter.date,
+                        summary: frontMatter.summary
+                    });
+                }
+            });
+        }
     }
-  });
+});
 
 // Write the word-to-posts map to a JSON file
 fs.writeFileSync(path.join(outputDirectory, 'wordToPostsMap.json'), JSON.stringify(wordToPostsMap, null, 2));

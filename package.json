@@ -10,6 +10,7 @@
   "scripts": {
     "preprocess": "node preprocess.js",
     "serve": "bundle exec jekyll serve --livereload",
+    "watch": "nodemon --watch _posts --watch _includes --watch _layouts --exec \"npm run preprocess\"",
     "start": "concurrently \"npm:watch\" \"npm:serve\""
   },  
   "keywords": [],
