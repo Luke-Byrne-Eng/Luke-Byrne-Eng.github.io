@@ -25,6 +25,7 @@ A collection of papers I have read and liked.
   ];
 
   const wordMappings = {
+    "transformers": "transformer",
     "distill": "distillation", 
     "outofdistribution": "distribution",
     "conv": "convolution",
@@ -102,7 +103,6 @@ A collection of papers I have read and liked.
 
       return words;
   }
-
 
 </script>
 

@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "ON INTERACTION BETWEEN AUGMENTATIONS AND
-CORRUPTIONS IN NATURAL CORRUPTION ROBUSTNESS"
+title:  "On Interaction Between Augmentations and Corruptions in Natural Corruption Robustness"
 date:   19 Nov 2021
 categories: research
 paper_url: https://arxiv.org/pdf/2102.11273.pdf

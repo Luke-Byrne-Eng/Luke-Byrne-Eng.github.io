@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "compromise": "^14.12.0",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0"
+  },
+  "name": "luke-byrne-eng.github.io",
+  "version": "1.0.0",
+  "main": "preprocess.js",
+  "scripts": {
+    "preprocess": "node preprocess.js",
+    "serve": "bundle exec jekyll serve --livereload",
+    "start": "concurrently \"npm:watch\" \"npm:serve\""
+  },  
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

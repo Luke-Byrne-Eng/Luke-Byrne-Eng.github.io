@@ -31,6 +31,14 @@ github_username:  Luke-Byrne-Eng
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+
+minima:
+  skin: auto
+  social_links:
+    - platform: github
+      user_url: "https://github.com/Luke-Byrne-Eng"
+      
 
 
 # Exclude from processing.
