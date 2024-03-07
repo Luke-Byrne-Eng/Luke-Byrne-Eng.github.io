@@ -55,12 +55,14 @@ const stopwords = ["algorithm", "model", "data", "results", "performance", "appr
 "employ", "leverage", "image", "that", "category", "lose", "identify", "minimize", "reduction", "resource", "modification", 
 "variation", "variant", "scheme", "integrate", "drive", "call", "content", "it39", "strength", "demand", "affect", "prove", 
 "principle", "scenario", "view", "exhibit", "analysi", "interaction", "excel", "no", "semi", "help", "demonstrate",
-"component", "involve", 
+"component", "involve", "dificulty", "share", "inspire", "involve", "version", "match", 
 ];
 const wordMappings = {
+    "peturb": "perturbation",
+    "gradients": "gradient",
+    "noisy": "noise",
     "reconstruction": "reconstruct",
     "transform": "transformation",
-    "similarity": "similar",
     "pretrain": "pretraining",
     "converge": "convergence",
     "convnet": "convolution",
