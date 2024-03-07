@@ -14,10 +14,10 @@ A collection of papers I have read and liked.
   var postsData = [
     {% for post in site.categories.research %}
       {
-        "title": "{{ post.title | escape }}",
+        "title": "{{ post.title | escape | replace: '&amp;', '&' | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" }}",
         "url": "{{ post.url | absolute_url }}",
         "date": "{{ post.date | date: '%B %d, %Y' }}",
-        "summary": "{{ post.summary | escape | strip_newlines }}"
+        "summary": "{{ post.summary | escape | strip_newlines | replace: '&amp;', '&' | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" }}"
       },
     {% endfor %}
   ];
