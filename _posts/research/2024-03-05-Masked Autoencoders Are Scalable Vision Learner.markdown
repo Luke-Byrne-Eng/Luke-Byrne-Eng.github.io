@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Masked Autoencoders Are Scalable Vision Learner"
+title:  "Masked Autoencoders Are Scalable Vision Learners"
 date:   19 Dec 2021
 categories: research
 paper_url: https://arxiv.org/pdf/2111.06377.pdf
