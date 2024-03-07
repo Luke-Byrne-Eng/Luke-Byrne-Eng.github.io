@@ -43,7 +43,7 @@ const stopwords = ["algorithm", "model", "data", "results", "performance", "appr
 "approval", "acceptance", "consent", "agreement", "acquiescence", "compliance", "conformity", "adherence", "observance", 
 "abidance", "harmony", "coordination", "integration", "unification", "consolidation", "merger", "range", "scale", 
 "model", "prototype", "archetype", "paradigm", "exemplar", "ideal", "standard", "benchmark", "criterion", "reference", 
-"guide", "direction", "advice", "recommendation", "suggestion", "proposal", "plan", "strategy", "approach", "method", 
+"guide", "direction", "advice", "recommendation", "suggestion", "proposal", "plan", "approach", "method", 
 "technique", "tactic", "maneuver", "move", "endeavor", "effort", "attempt", "trial", "experiment", 
 "test", "models", "size", "non", "mitigate", "rate", "when", "prevent", "sample", "lead", "like", "function", "explore", 
 "key", "make", "tasks", "require", "level", "mechanism", "number", "example", "one", "capture", "sucess", 
@@ -56,9 +56,10 @@ const stopwords = ["algorithm", "model", "data", "results", "performance", "appr
 "variation", "variant", "scheme", "integrate", "drive", "call", "content", "it39", "strength", "demand", "affect", "prove", 
 "principle", "scenario", "view", "exhibit", "analysi", "interaction", "excel", "no", "semi", "help", "demonstrate",
 "component", "involve", "dificulty", "share", "inspire", "involve", "version", "match", "github", "com", "https", "www",
-"d", "stage", "learner", "face", "ability",
+"d", "stage", "learner", "face", "ability", "incorporate", "influence", "underlying",
 ];
 const wordMappings = {
+    "corrupt": "corruption",
     "overfit": "overfitting",
     "reconstruct": "reconstruction",
     "dimensionality": "dimension",
@@ -169,33 +170,58 @@ function preprocessText(text) {
 // Read and process all posts
 let wordToPostsMap = {};
 
-fs.readdirSync(postsDirectory).forEach(file => {
-    const filePath = path.join(postsDirectory, file);
-    // Check if the path is a file
-    if (fs.statSync(filePath).isFile()) {
-        const fileContents = fs.readFileSync(filePath, 'utf8');
-        const { data: frontMatter } = matter(fileContents);
-
-        if (frontMatter.categories && frontMatter.categories.includes('research')) {
-            const words = preprocessText(`${frontMatter.title} ${frontMatter.summary}`);
-            words.forEach(word => {
-                if (!wordToPostsMap[word]) {
-                    wordToPostsMap[word] = [];
-                }
-                // Check if the post is already in the array for this word
-                const postExists = wordToPostsMap[word].some(post => post.url === filePath.replace(postsDirectory, '').replace(/\\/g, '/'));
-                if (!postExists) {
-                    wordToPostsMap[word].push({
-                        title: frontMatter.title,
-                        url: filePath.replace(postsDirectory, '').replace(/\\/g, '/'),
-                        date: frontMatter.date,
-                        summary: frontMatter.summary
-                    });
-                }
-            });
-        }
+const normalizeCategories = (categories) => {
+    if (Array.isArray(categories)) {
+      return categories;
+    } else if (typeof categories === 'string') {
+      // If categories is a string, split by comma to support comma-separated lists
+      return categories.split(',').map(category => category.trim());
+    } else {
+      // Fallback to an empty array or a default category as needed
+      return [];
     }
-});
+  };
+  
 
-// Write the word-to-posts map to a JSON file
+fs.readdirSync(postsDirectory).forEach(file => {
+    if (fs.statSync(path.join(postsDirectory, file)).isFile()) {
+      const fileContents = fs.readFileSync(path.join(postsDirectory, file), 'utf8');
+      const { data: frontMatter } = matter(fileContents);
+  
+      if (frontMatter.categories && frontMatter.categories.includes('research')) {
+        const words = preprocessText(`${frontMatter.title} ${frontMatter.summary}`);
+        words.forEach(word => {
+          if (!wordToPostsMap[word]) {
+            wordToPostsMap[word] = [];
+          }
+  
+          const postDate = new Date(frontMatter.date);
+          const year = postDate.getFullYear();
+          const month = (`0${postDate.getMonth() + 1}`).slice(-2); // Months are 0-indexed
+          const day = (`0${postDate.getDate()}`).slice(-2);
+          const titleSlug = file.replace(/\.markdown$/, '').replace(/^(\d{4})-(\d{2})-(\d{2})-/, '').replace(/ /g, '-');
+          const categories = normalizeCategories(frontMatter.categories);
+          const categoryPath = categories.join('/'); // Assuming categories is an array
+
+          const url = `/${categoryPath}/${year}/${month}/${day}/${titleSlug}.html`;
+  
+          // Avoid duplicate entries
+          if (!wordToPostsMap[word].some(post => post.url === url)) {
+            wordToPostsMap[word].push({
+              title: frontMatter.title,
+              url: url,
+              date: new Date(frontMatter.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              }),
+              summary: frontMatter.summary
+            });
+          }
+        });
+      }
+    }
+  });
+
 fs.writeFileSync(path.join(outputDirectory, 'wordToPostsMap.json'), JSON.stringify(wordToPostsMap, null, 2));
+

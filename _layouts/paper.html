@@ -1,0 +1,32 @@
+---
+layout: base
+---
+<style>
+  .responsive-pdf-container {
+      overflow: hidden;
+      padding-top: 141.42%; /*approx A4 ratio*/
+      position: relative;
+  }
+  
+  .responsive-pdf-container iframe {
+      border: none;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+  }
+</style>
+
+<article class="paper">
+  <h1>{{ page.title }}</h1>
+  <p><i>{{ page.date | date: "%B %d, %Y" }}</i></p>
+  <a href="{{ page.paper_url }}">{{ page.paper_url }}</a><br>
+  {% if page.code_url %}
+  <a href="{{ page.code_url }}">{{ page.code_url }}</a>
+  {% endif %}
+  <br>
+  <div class="responsive-pdf-container">
+      <iframe src="{{ page.paper_url }}" style="border: none;"></iframe>
+  </div>
+</article>
