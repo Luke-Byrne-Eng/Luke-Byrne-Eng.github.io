@@ -54,7 +54,7 @@ title:
       const color = `rgba(${pixelData[index]}, ${pixelData[index + 1]}, ${pixelData[index + 2]}, ${pixelData[index + 3] / 255})`;
       ctx.fillStyle = color;
       ctx.beginPath();
-      ctx.arc(x/2, y/2, 1.25, 0, Math.PI * 2);
+      ctx.arc(x/2, y/2, 1.0, 0, Math.PI * 2);
       ctx.fill();
     });
 
