@@ -84,4 +84,4 @@ def stipple(image_path, n_points, n_iterations):
     print("Done")
 
 if __name__ == "__main__":
-    stipple("luke-byrne.png", 3000, 30)
+    stipple("luke-byrne-dark.png", 2000, 30)
