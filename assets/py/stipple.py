@@ -7,7 +7,7 @@ import random
 def load_and_grayscale(image_path):
     """Load an image and convert it to grayscale."""
     image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
-    #image = 255 - image  # Invert the image
+    image = 255 - image  # Invert the image
     return image / 255.0  # Normalize to 0-1
 
 def rejection_sampling(image, n_points):
@@ -16,7 +16,7 @@ def rejection_sampling(image, n_points):
     height, width = image.shape
     while len(points) < n_points:
         x, y = random.randint(0, width - 1), random.randint(0, height - 1)
-        if random.random() < (image[y, x] ** 1 ):  # Use pixel intensity as a probability
+        if random.random() < (image[y, x]):  # Use pixel intensity as a probability
             points.append([float(x), float(y)])  # Store as float
     return np.array(points, dtype=np.float64)  # Ensure array is of type float64
 
@@ -62,7 +62,7 @@ def adjust_points(points, centroids, weights, i, n_iterations):
     movement_vectors = centroids - points
     points += (movement_vectors * adjustment_factor)
 
-def save_intermediate_states(states, filename="stipple_states.json"):
+def save_intermediate_states(states, filename="stipple_states_light.json"):
     """Save the intermediate states to a JSON file."""
     with open(filename, 'w') as f:
         json.dump(states, f)
@@ -84,4 +84,4 @@ def stipple(image_path, n_points, n_iterations):
     print("Done")
 
 if __name__ == "__main__":
-    stipple("luke-byrne-dark.png", 2000, 30)
+    stipple("luke-byrne.png", 4000, 30)
