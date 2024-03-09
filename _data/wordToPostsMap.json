@@ -13201,14 +13201,6 @@
       "summary": "Label smoothing, which blends hard targets with a uniform distribution across labels, enhances the generalization and learning pace of multi-class neural networks. This technique is used in top models for image classification, language translation, and speech recognition, as it prevents networks from becoming overly confident. Despite its popularity, the underlying mechanisms of label smoothing remain elusive. Our findings suggest that label smoothing not only boosts generalization but also enhances model calibration, benefiting beam-search processes. However, it reduces the effectiveness of knowledge distillation when a teacher network employs label smoothing. We demonstrate that label smoothing encourages tighter clustering of same-class examples in the penultimate layer, impacting the model's ability to capture class resemblances necessary for distillation but not affecting generalization or prediction calibration."
     }
   ],
-  "underlying": [
-    {
-      "title": "When Does Label Smoothing Help?",
-      "url": "/research/2020/06/10/When-Does-Label-Smoothing-Help.html",
-      "date": "June 10, 2020",
-      "summary": "Label smoothing, which blends hard targets with a uniform distribution across labels, enhances the generalization and learning pace of multi-class neural networks. This technique is used in top models for image classification, language translation, and speech recognition, as it prevents networks from becoming overly confident. Despite its popularity, the underlying mechanisms of label smoothing remain elusive. Our findings suggest that label smoothing not only boosts generalization but also enhances model calibration, benefiting beam-search processes. However, it reduces the effectiveness of knowledge distillation when a teacher network employs label smoothing. We demonstrate that label smoothing encourages tighter clustering of same-class examples in the penultimate layer, impacting the model's ability to capture class resemblances necessary for distillation but not affecting generalization or prediction calibration."
-    }
-  ],
   "beam": [
     {
       "title": "When Does Label Smoothing Help?",
@@ -13555,38 +13547,6 @@
       "url": "/research/1994/11/28/Simplifying-Neural-Nets-by-Discovering-Flat-Minima.html",
       "date": "November 28, 1994",
       "summary": "We introduce an algorithm designed to identify networks that are both simple and highly generalizable by searching for extensive areas of flat minima in the error function, where the error rate is relatively stable. These flat minima are associated with lower risks of overfitting according to MDL principles. Despite needing to calculate second-order derivatives, the algorithm maintains a complexity level comparable to backpropagation. We tested it on both feedforward and recurrent networks, and in stock market prediction tasks, it performed better than traditional backpropagation, weight decay, and the optimal brain surgeon methods."
-    }
-  ],
-  "incorporate": [
-    {
-      "title": "AdaHessian: An Adaptive Second Order Optimizer for Machine Learning",
-      "url": "/research/2021/04/29/AdaHessian-An-Adaptive-Second-Order-Optimizer-for-Machine-Learning.html",
-      "date": "April 29, 2021",
-      "summary": "AdaHessian is a novel second-order stochastic optimization algorithm that dynamically incorporates the curvature of the loss function through adaptive Hessian estimates, offering superior convergence properties compared to first-order methods like SGD and Adam. Traditional second-order methods face challenges in computation and accuracy, which AdaHessian addresses through innovative techniques: a fast Hutchinson-based method for curvature matrix approximation, a root-mean-square exponential moving average for Hessian diagonal variation smoothing, and block diagonal averaging for variance reduction. AdaHessian sets new benchmarks, outperforming adaptive methods across computer vision (CV), natural language processing (NLP), and recommendation systems. Key achievements include significantly higher accuracy on CIFAR10 and ImageNet, improved BLEU scores and perplexity (PPL) for NLP tasks, better performance on the GLUE benchmark, and superior results on the Criteo Ad Kaggle dataset compared to leading algorithms like AdamW and Adagrad. AdaHessian maintains a competitive computation cost per iteration similar to first-order methods and demonstrates robustness towards hyperparameter settings. The algorithm is open-sourced for public use."
-    },
-    {
-      "title": "Self-supervised Transformers for Unsupervised Object Discovery Using Normalized Cut",
-      "url": "/research/2022/03/24/Self-supervised-Transformers-for-Unsupervised-Object-Discovery-Using-Normalized-Cut.html",
-      "date": "March 24, 2022",
-      "summary": "This study introduces a graph-based method leveraging self-supervised transformer features, specifically those trained with self-distillation loss (DINO), for object discovery in images. It treats visual tokens as nodes within a weighted graph, where edges represent the similarity between tokens. By applying a normalized graph-cut through spectral clustering and generalized eigendecomposition, it segments foreground objects based on the second smallest eigenvector's indication of a token's likelihood to belong to a foreground object. This straightforward yet effective approach surpasses the state-of-the-art LOST by significant margins on VOC07, VOC12, and COCO20K datasets. Additionally, incorporating a second stage class-agnostic detector (CAD) further enhances performance. The method also extends to unsupervised saliency detection, improving IoU on benchmarks like ECSSD, DUTS, DUT-OMRON, and achieves competitive results in weakly supervised object detection on CUB and ImageNet. The code is available at https://www.m-psi.fr/Papers/TokenCut2022/."
-    },
-    {
-      "title": "Hard Patches Mining for Masked Image Modeling",
-      "url": "/research/2023/04/12/Hard-Patches-Mining-for-Masked-Image-Modeling.html",
-      "date": "April 12, 2023",
-      "summary": "Masked image modeling (MIM) is a promising approach for learning scalable visual representations by focusing on predicting the contents of masked patches, with performance depending on mask strategies. We propose a novel framework, Hard Patches Mining (HPM), for MIM pre-training that goes beyond simply solving given problems. HPM aims for the model to also generate more challenging tasks for itself, akin to a teacher-student dynamic. It uses reconstruction loss as a metric for task difficulty and incorporates an auxiliary loss predictor to determine which patches to mask based on predicted patch-wise losses, using a strategy to avoid overfitting. Experiments show HPM's effectiveness in creating challenging masked images and enhancing representation quality through the loss prediction objective, highlighting its ability to identify and learn from hard-to-reconstruct areas."
-    },
-    {
-      "title": "Mixed-order self-paced curriculum learning for universal lesion detection",
-      "url": "/research/2023/02/09/Mixed-order-self-paced-curriculum-learning-for-universal-lesion-detection.html",
-      "date": "February 9, 2023",
-      "summary": "Self-paced curriculum learning (SCL) has been effective in various fields, employing easy-to-hard sampling based on data difficulty. However, in medical image analysis tasks like universal lesion detection, it faces challenges due to inaccurate difficulty estimation and the under-utilization of hard samples. This paper introduces a novel approach, mixed-order self-paced curriculum learning (Mo-SCL), which combines uncertainty and loss for better difficulty estimation and incorporates both hard and easy samples in training batches to address these issues. Through theoretical analysis and experiments on the DeepLesion dataset, Mo-SCL is shown to enhance lesion detection accuracy in state-of-the-art methods without additional network modifications."
-    },
-    {
-      "title": "Qlora: Efficient Finetuning of Quantized Llms",
-      "url": "/research/2023/05/23/Qlora-Efficient-Finetuning-of-Quantized-Llms.html",
-      "date": "May 23, 2023",
-      "summary": "We introduce QLORA, a finetuning method that enables a 65B parameter model to be finetuned on a single 48GB GPU, maintaining 16-bit task performance by utilizing 4-bit quantized language models and Low Rank Adapters (LoRA). Our best-performing model family, Guanaco, surpasses all openly available models on the Vicuna benchmark, achieving 99.3% of ChatGPT's performance with only 24 hours of finetuning on one GPU. QLORA incorporates several memory-saving innovations without compromising performance, including a new 4-bit data type optimized for normally distributed weights, Double Quantization for reduced memory usage, and Paged Optimizers for managing memory spikes. We applied QLORA to finetune over 1,000 models, analyzing performance across various datasets, model types (LLaMA, T5), and scales, demonstrating its ability to achieve state-of-the-art results even with smaller models. Our findings also suggest that GPT-4 evaluations are a viable substitute for human assessments, and question the reliability of current chatbot benchmarks. A detailed comparison with ChatGPT highlights Guanaco's shortcomings. We make our models and 4-bit training code public."
     }
   ],
   "curvature": [
@@ -18276,14 +18236,6 @@
     }
   ],
   "regression": [
-    {
-      "title": "Neural Tangent Kernel: Convergence and Generalization in Neural Networks",
-      "url": "/research/2020/02/10/Neural-Tangent-Kernel-Convergence-and-Generalization-in-Neural-Networks.html",
-      "date": "February 10, 2020",
-      "summary": "Artificial neural networks (ANNs) are shown to be equivalent to Gaussian processes at initialization in the infinite-width limit, connecting them to kernel methods. It's demonstrated that ANNs' behavior during training can be described using a new kernel, the Neural Tangent Kernel (NTK), which governs how the network's function evolves by following the kernel gradient of a convex functional cost during gradient descent. The NTK, initially random, stabilizes to a constant in the infinite-width limit, allowing the study of ANNs in function space. Positive-definiteness of the limiting NTK, necessary for training convergence, is proven under certain conditions. For least-squares regression, it's shown that the network function follows a linear differential equation during training, with convergence speed influenced by the NTK's principal components, supporting early stopping. Numerical studies on the NTK in wide networks confirm these theoretical findings."
-    }
-  ],
-  "influence": [
     {
       "title": "Neural Tangent Kernel: Convergence and Generalization in Neural Networks",
       "url": "/research/2020/02/10/Neural-Tangent-Kernel-Convergence-and-Generalization-in-Neural-Networks.html",
