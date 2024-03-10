@@ -34,7 +34,7 @@ plugins:
   - jekyll-seo-tag
 
 minima:
-  skin: classic
+  skin: auto
   social_links:
     - platform: github
       user_url: "https://github.com/Luke-Byrne-Eng"
