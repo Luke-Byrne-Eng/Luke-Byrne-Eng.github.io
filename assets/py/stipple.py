@@ -7,11 +7,14 @@ import random
 def load_and_grayscale(image_path):
     """Load an image and convert it to grayscale."""
     image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
-    image = 255 - image  # Invert the image
+    #image = 255 - image  # Invert the image
     return image / 255.0  # Normalize to 0-1
 
 def rejection_sampling(image, n_points):
     """Generate initial points based on the grayscale intensity."""
+    # Blur image
+    image = cv2.GaussianBlur(image, (41, 41), 0)
+
     points = []
     height, width = image.shape
     while len(points) < n_points:
@@ -19,6 +22,19 @@ def rejection_sampling(image, n_points):
         if random.random() < (image[y, x]):  # Use pixel intensity as a probability
             points.append([float(x), float(y)])  # Store as float
     return np.array(points, dtype=np.float64)  # Ensure array is of type float64
+
+def gaussian_sampling(image, n_points):
+    """Generate initial points based on a Gaussian distribution."""
+    # Blur image
+    image = cv2.GaussianBlur(image, (41, 41), 0)
+
+    points = []
+    height, width = image.shape
+    while len(points) < n_points:
+        x, y = random.gauss((width/2), width / 5), random.gauss((height/2)-(height/16), height / 5)
+        if 0 <= x < width and 0 <= y < height:
+            points.append([x, y])
+    return np.array(points, dtype=np.float64)
 
 
 def compute_weighted_centroids(points, image):
@@ -62,7 +78,7 @@ def adjust_points(points, centroids, weights, i, n_iterations):
     movement_vectors = centroids - points
     points += (movement_vectors * adjustment_factor)
 
-def save_intermediate_states(states, filename="stipple_states_light.json"):
+def save_intermediate_states(states, filename="stipple_states_dark.json"):
     """Save the intermediate states to a JSON file."""
     with open(filename, 'w') as f:
         json.dump(states, f)
@@ -70,7 +86,8 @@ def save_intermediate_states(states, filename="stipple_states_light.json"):
 def stipple(image_path, n_points, n_iterations):
     """Perform the stipple effect on an image."""
     image = load_and_grayscale(image_path)
-    points = rejection_sampling(image, n_points)
+    points = gaussian_sampling(image, n_points)
+    #points = rejection_sampling(image, n_points)
     states = []
 
     for i in range(n_iterations):
@@ -84,4 +101,4 @@ def stipple(image_path, n_points, n_iterations):
     print("Done")
 
 if __name__ == "__main__":
-    stipple("luke-byrne.png", 4000, 30)
+    stipple("luke-byrne-dark.png", 3000, 30)

@@ -15,53 +15,64 @@ title:
   const hiddenCtx = hiddenCanvas.getContext('2d');
   const canvas = document.getElementById('stippleCanvas');
   const ctx = canvas.getContext('2d');
-  let pixelData, overlayScale = 0.4 / 2;
+  let pixelData;
   let currentState = 0;
+  const totalSteps = 10; // Total steps for the color transition
   const overlayImage = new Image();
+  const overlayScale = 0.5;
 
-    // Determine the theme and set the path to the JSON file accordingly
+  // Determine the theme and set the path to the JSON file accordingly
   const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   const jsonPath = theme === 'dark' 
     ? '{{ "/assets/py/stipple_states_dark.json" | relative_url }}'
     : '{{ "/assets/py/stipple_states_light.json" | relative_url }}';
 
   overlayImage.onload = () => {
-    // Adjust hidden canvas size to downscaled image resolution
     hiddenCanvas.width = overlayImage.width * overlayScale;
     hiddenCanvas.height = overlayImage.height * overlayScale;
     hiddenCtx.drawImage(overlayImage, 0, 0, hiddenCanvas.width, hiddenCanvas.height);
-    // Fetch all pixel data from the hidden canvas for efficient color sampling
     pixelData = hiddenCtx.getImageData(0, 0, hiddenCanvas.width, hiddenCanvas.height).data;
 
-    // Once everything is set up, start the animation
     fetch(jsonPath)
       .then(response => response.json())
       .then(data => animateStipple(data));
   };
-  overlayImage.src = '{{ "/assets/py/luke-byrne.jpg" | relative_url }}'; // Update the path accordingly
+  overlayImage.src = '{{ "/assets/py/luke-byrne.jpg" | relative_url }}';
 
-  function animateStipple(data, delay = 120) { // Animation speed control
-    if (currentState >= data.length) return; // Stop condition
+  function interpolateColor(startColor, endColor, factor) {
+    return startColor.map((startVal, i) => {
+      return startVal + (endColor[i] - startVal) * factor;
+    });
+  }
+
+  function animateStipple(data, delay = 100) {
+    if (currentState >= data.length) return;
+    if (currentState == 1){let delay = 300};
     const points = data[currentState];
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    let blendFactor = currentState / totalSteps; // Calculate blend factor based on current step
+    if (blendFactor > 1){blendFactor = 1};
 
     points.forEach(([x, y]) => {
-      // Adjust the point's position for the scaled-down overlay
-      const imgX = Math.floor(x * overlayScale);
-      const imgY = Math.floor(y * overlayScale);
+      const imgX = Math.floor((x * overlayScale));
+      const imgY = Math.floor((y * overlayScale));
       const index = (imgY * hiddenCanvas.width + imgX) * 4;
-      // Construct the color from the preloaded pixel data
-      const color = `rgba(${pixelData[index]}, ${pixelData[index + 1]}, ${pixelData[index + 2]}, ${pixelData[index + 3] / 255})`;
-      ctx.fillStyle = color;
+      const sampledColor = [pixelData[index], pixelData[index + 1], pixelData[index + 2], pixelData[index + 3] / 255];
+      const blackColor = [122, 122, 122, 1]; // Starting color (black)
+      const finalColor = interpolateColor(blackColor, sampledColor, blendFactor); // Interpolate between black and sampled color
+      const colorStr = `rgba(${finalColor[0]}, ${finalColor[1]}, ${finalColor[2]}, ${finalColor[3]})`;
+      ctx.fillStyle = colorStr;
       ctx.beginPath();
-      ctx.arc(x/2, y/2, 1.2, 0, Math.PI * 2);
+      ctx.arc(x/2, y/2, 1.15, 0, Math.PI * 2);
       ctx.fill();
     });
 
     currentState++;
-    setTimeout(() => requestAnimationFrame(() => animateStipple(data, delay)), delay); // Next frame
+    setTimeout(() => requestAnimationFrame(() => animateStipple(data, delay)), delay);
   }
 </script>
+
 
 # Electronics, Robotics, and Machine Learning Engineer
 
