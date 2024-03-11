@@ -64,7 +64,7 @@ title:
       const colorStr = `rgba(${finalColor[0]}, ${finalColor[1]}, ${finalColor[2]}, ${finalColor[3]})`;
       ctx.fillStyle = colorStr;
       ctx.beginPath();
-      ctx.arc(x/2, y/2, 1.15, 0, Math.PI * 2);
+      ctx.arc(x/2, y/2, 1.1, 0, Math.PI * 2);
       ctx.fill();
     });
 

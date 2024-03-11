@@ -25,13 +25,10 @@ def rejection_sampling(image, n_points):
 
 def gaussian_sampling(image, n_points):
     """Generate initial points based on a Gaussian distribution."""
-    # Blur image
-    image = cv2.GaussianBlur(image, (41, 41), 0)
-
     points = []
     height, width = image.shape
     while len(points) < n_points:
-        x, y = random.gauss((width/2), width / 5), random.gauss((height/2)-(height/16), height / 5)
+        x, y = random.gauss((width/2), width / 6), random.gauss((height/2)-(height/16), height / 6)
         if 0 <= x < width and 0 <= y < height:
             points.append([x, y])
     return np.array(points, dtype=np.float64)
@@ -101,4 +98,4 @@ def stipple(image_path, n_points, n_iterations):
     print("Done")
 
 if __name__ == "__main__":
-    stipple("luke-byrne-dark.png", 3000, 30)
+    stipple("luke-byrne-dark.png", 4000, 30)

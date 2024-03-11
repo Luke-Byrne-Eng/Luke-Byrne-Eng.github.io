@@ -1519,6 +1519,12 @@
       "summary": "The Transformer is crucial for natural language processing tasks, but its training requires a learning rate warm-up stage, essential for performance yet slowing optimization and increasing hyper-parameter tuning needs. This paper investigates the importance of the warm-up stage and the impact of layer normalization placement. It uses mean field theory to demonstrate that the original Post-LN Transformer's design, with layer normalization between residual blocks, results in large initial gradients, necessitating a warm-up stage for stability. Conversely, placing layer normalization inside residual blocks, as seen in Pre-LN Transformers, stabilizes initial gradients, allowing the elimination of the warm-up stage. Experiments reveal that Pre-LN Transformers achieve comparable performance to traditional models with less training time and fewer hyper-parameters across various applications."
     },
     {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
+    },
+    {
       "title": "Vision Transformers for Action Recognition: a Survey",
       "url": "/research/2022/09/13/Vision-Transformers-for-Action-Recognition-a-Survey.html",
       "date": "September 13, 2022",
@@ -2031,6 +2037,12 @@
       "url": "/research/2023/02/09/Mixed-order-self-paced-curriculum-learning-for-universal-lesion-detection.html",
       "date": "February 9, 2023",
       "summary": "Self-paced curriculum learning (SCL) has been effective in various fields, employing easy-to-hard sampling based on data difficulty. However, in medical image analysis tasks like universal lesion detection, it faces challenges due to inaccurate difficulty estimation and the under-utilization of hard samples. This paper introduces a novel approach, mixed-order self-paced curriculum learning (Mo-SCL), which combines uncertainty and loss for better difficulty estimation and incorporates both hard and easy samples in training batches to address these issues. Through theoretical analysis and experiments on the DeepLesion dataset, Mo-SCL is shown to enhance lesion detection accuracy in state-of-the-art methods without additional network modifications."
+    },
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
     },
     {
       "title": "Vision Transformers for Action Recognition: a Survey",
@@ -3385,6 +3397,12 @@
       "url": "/research/2023/03/07/Denoising-Masked-Autoencoders-Help-Robust-Classification.html",
       "date": "March 7, 2023",
       "summary": "This paper introduces Denoising Masked AutoEncoders (DMAE), a novel self-supervised method for developing robust image classifiers. By corrupting images with Gaussian noise and masking patches, then reconstructing them using a Transformer-based model, DMAE's encoder captures essential semantics resistant to Gaussian noise. It demonstrates that this encoder can serve as a base for Gaussian smoothed models, enabling the computation of a certified radius for robustness. The method, though simple, significantly enhances performance in classification tasks. The DMAE ViT-Base model achieves comparable or superior certified accuracy with far fewer parameters than previous approaches, while the ViT-Large model sets a new benchmark on the ImageNet dataset. The model also shows high transferability to the CIFAR-10 dataset, indicating its broad applicability. Models and code are shared online."
+    },
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
     }
   ],
   "prediction": [
@@ -5531,6 +5549,12 @@
       "url": "/research/2023/05/23/Qlora-Efficient-Finetuning-of-Quantized-Llms.html",
       "date": "May 23, 2023",
       "summary": "We introduce QLORA, a finetuning method that enables a 65B parameter model to be finetuned on a single 48GB GPU, maintaining 16-bit task performance by utilizing 4-bit quantized language models and Low Rank Adapters (LoRA). Our best-performing model family, Guanaco, surpasses all openly available models on the Vicuna benchmark, achieving 99.3% of ChatGPT's performance with only 24 hours of finetuning on one GPU. QLORA incorporates several memory-saving innovations without compromising performance, including a new 4-bit data type optimized for normally distributed weights, Double Quantization for reduced memory usage, and Paged Optimizers for managing memory spikes. We applied QLORA to finetune over 1,000 models, analyzing performance across various datasets, model types (LLaMA, T5), and scales, demonstrating its ability to achieve state-of-the-art results even with smaller models. Our findings also suggest that GPT-4 evaluations are a viable substitute for human assessments, and question the reliability of current chatbot benchmarks. A detailed comparison with ChatGPT highlights Guanaco's shortcomings. We make our models and 4-bit training code public."
+    },
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
     },
     {
       "title": "Simplifying Neural Nets by Discovering Flat Minima",
@@ -8543,6 +8567,12 @@
       "summary": "This paper investigates how neural networks generalize on small, algorithmically generated datasets, focusing on data efficiency, memorization, generalization, and learning speed. It highlights instances where neural networks grok patterns, significantly improving their generalization ability from mere chance to perfect accuracy, even beyond the point of overfitting. Additionally, the study finds that generalization on smaller datasets demands more optimization. It posits that such datasets are ideal for exploring the enigmatic phenomenon of how overparametrized neural networks generalize beyond simply memorizing their training data."
     },
     {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
+    },
+    {
       "title": "Synthetic Image Data for Deep Learning",
       "url": "/research/2022/12/12/Synthetic-Image-Data-for-Deep-Learning.html",
       "date": "December 12, 2022",
@@ -9159,6 +9189,12 @@
       "url": "/research/2023/08/29/DiffBIR-Towards-Blind-Image-Restoration-with-Generative-Diffusion-Prior.html",
       "date": "August 29, 2023",
       "summary": "We introduce DiffBIR, a framework using pretrained text-to-image diffusion models for blind image restoration. It consists of a two-stage pipeline: initially, we pretrain a restoration module on various degradations to enhance real-world applicability. Then, we use latent diffusion models for realistic restoration, including a novel injective modulation sub-network, LAControlNet, for fine-tuning, and employ pre-trained Stable Diffusion for its generative capabilities. Additionally, we provide a controllable module for users to adjust quality and fidelity during the denoising process. Our extensive tests show DiffBIR's superiority in blind image super-resolution and face restoration tasks across synthetic and real-world datasets. The code is available online."
+    },
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
     },
     {
       "title": "X3D: Expanding Architectures for Efficient Video Recognitio",
@@ -9979,6 +10015,12 @@
       "summary": "The limited number of videos in current action classification datasets like UCF-101 and HMDB-51 hinders the identification of effective video architectures due to similar performance across small-scale benchmarks. This study re-examines top architectures using the new, significantly larger Kinetics Human Action Video dataset, featuring 400 classes and over 400 clips per class from challenging YouTube videos. It analyzes the impact of this dataset on the performance of existing architectures and the benefits of pre-training on Kinetics. Additionally, the paper introduces the Two-Stream Inflated 3D ConvNet (I3D), an advancement that expands 2D ConvNet designs into 3D for enhanced video feature extraction. This model, pre-trained on Kinetics, sets new benchmarks in action classification, achieving 80.9% accuracy on HMDB-51 and 98.0% on UCF-101."
     },
     {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
+    },
+    {
       "title": "Self-Paced Curriculum Learning",
       "url": "/research/2015/01/01/Self-Paced-Curriculum-Learning.html",
       "date": "January 1, 2015",
@@ -10363,6 +10405,12 @@
       "url": "/research/2015/02/06/Delving-Deep-into-Rectifiers-Surpassing-Human-Level-Performance-on-ImageNet-Classificatio.html",
       "date": "February 6, 2015",
       "summary": "In this study, we explore two enhancements to rectifier neural networks for image classification. Firstly, we introduce a Parametric Rectified Linear Unit (PReLU) that extends traditional units, offering improved model fitting with negligible additional computational cost. Secondly, we develop a robust initialization strategy tailored for rectifier non-linearities, allowing the training of very deep models from scratch. Using PReLU networks, we achieved a 4.94% top-5 error rate on the ImageNet 2012 dataset, outperforming the previous best result and surpassing human-level performance."
+    },
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
     }
   ],
   "prelu": [
@@ -12399,6 +12447,12 @@
       "url": "/research/2023/08/29/DiffBIR-Towards-Blind-Image-Restoration-with-Generative-Diffusion-Prior.html",
       "date": "August 29, 2023",
       "summary": "We introduce DiffBIR, a framework using pretrained text-to-image diffusion models for blind image restoration. It consists of a two-stage pipeline: initially, we pretrain a restoration module on various degradations to enhance real-world applicability. Then, we use latent diffusion models for realistic restoration, including a novel injective modulation sub-network, LAControlNet, for fine-tuning, and employ pre-trained Stable Diffusion for its generative capabilities. Additionally, we provide a controllable module for users to adjust quality and fidelity during the denoising process. Our extensive tests show DiffBIR's superiority in blind image super-resolution and face restoration tasks across synthetic and real-world datasets. The code is available online."
+    },
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
     }
   ],
   "character": [
@@ -13457,6 +13511,12 @@
       "url": "/research/2022/10/13/How-to-Train-Vision-Transformer-on-Small-scale-Datasets.html",
       "date": "October 13, 2022",
       "summary": "The Vision Transformer (ViT) offers simplicity, robustness, and superior performance in vision tasks but struggles with small-scale datasets due to its lack of inherent inductive biases and dependence on large-scale pre-training datasets like ImageNet and JFT. This study demonstrates that self-supervised learning can introduce effective inductive biases directly from small datasets, enabling the fine-tuning of ViTs without large-scale pre-training or modifications to the architecture or loss functions. Experiments show improved performance on small datasets such as CIFAR10/100, CINIC10, SVHN, Tiny-ImageNet, Aircraft, and Cars, maintaining ViT's attention to relevant regions and robustness. The code and models are available online."
+    },
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
     },
     {
       "title": "When Do Flat Minima Optimizers Work?",
@@ -14971,6 +15031,12 @@
       "url": "/research/2023/07/31/Pre-training-Vision-Transformers-with-Very-Limited-Synthesized-Images.html",
       "date": "July 31, 2023",
       "summary": "Formula-driven supervised learning (FDSL) utilizes synthetic images from mathematical formulas, like fractals, for pre-training vision transformers, demonstrating competitive performance on various downstream tasks. This study proposes that generating different instances within the same category in FDSL acts as data augmentation. By adopting this approach, we introduce a one-instance fractal database (OFDB) where only a single image per category is needed, outperforming the original method of generating multiple instances. Scaling OFDB to 21,000 categories, we achieve comparable or superior results to models pre-trained on ImageNet-21k in ImageNet-1k fine-tuning, despite OFDB's significantly smaller size of 21k images compared to ImageNet-21k's 14M. This finding suggests the potential of pre-training vision transformers on much smaller datasets."
+    },
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
     }
   ],
   "act": [
@@ -15639,6 +15705,12 @@
       "url": "/research/2023/10/30/The-geometry-of-hidden-representations-of-large-transformer-models.html",
       "date": "October 30, 2023",
       "summary": "Large transformers, used for self-supervised learning across data types like protein sequences, images, and text, reveal the semantic structure of data through successive transformations. This study examines the geometric and statistical properties of these representations across layers, finding common evolution patterns in transformers trained on diverse tasks. Initially, data manifolds expand, then contract at intermediate layers, with the intrinsic dimension (ID) stabilizing or peaking slightly towards the end. Semantic information peaks after initial expansion, a trend consistent across models and datasets. The study suggests an unsupervised method to pinpoint layers richest in semantic content, identifying those at a relative ID minimum as optimal for downstream tasks"
+    },
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
     }
   ],
   "pinpoint": [
@@ -16159,6 +16231,12 @@
       "url": "/research/2023/08/29/DiffBIR-Towards-Blind-Image-Restoration-with-Generative-Diffusion-Prior.html",
       "date": "August 29, 2023",
       "summary": "We introduce DiffBIR, a framework using pretrained text-to-image diffusion models for blind image restoration. It consists of a two-stage pipeline: initially, we pretrain a restoration module on various degradations to enhance real-world applicability. Then, we use latent diffusion models for realistic restoration, including a novel injective modulation sub-network, LAControlNet, for fine-tuning, and employ pre-trained Stable Diffusion for its generative capabilities. Additionally, we provide a controllable module for users to adjust quality and fidelity during the denoising process. Our extensive tests show DiffBIR's superiority in blind image super-resolution and face restoration tasks across synthetic and real-world datasets. The code is available online."
+    },
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
     },
     {
       "title": "Visual Identification of Individual Holstein-Friesian Cattle via Deep Metric Learning",
@@ -16837,6 +16915,12 @@
       "url": "/research/2022/08/08/3D-Gaussian-Splatting-for-Real-Time-Radiance-Field-Rendering.html",
       "date": "August 8, 2022",
       "summary": "Radiance Field methods have significantly advanced novel-view synthesis for scenes from multiple photos or videos, but high visual quality requires costly training and rendering, with faster methods sacrificing quality. Existing methods struggle to display unbounded, complete scenes at 1080p resolution in real-time. We introduce a novel approach with three key innovations: 1) Utilizing sparse points from camera calibration to represent scenes with 3D Gaussians, optimizing scene fidelity while reducing computation in empty spaces. 2) Implementing interleaved optimization and density control of the 3D Gaussians, including anisotropic covariance adjustment for accurate scene depiction. 3) Developing a fast, visibility-aware rendering algorithm enabling anisotropic splatting, which speeds up training and supports real-time (≥ 30 fps) rendering at 1080p. Our method demonstrates superior visual quality and real-time rendering capabilities across several datasets."
+    },
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
     }
   ],
   "render": [
@@ -18691,6 +18775,46 @@
       "url": "/research/2018/02/12/Quo-Vadis,-Action-Recognition-A-New-Model-and-the-Kinetics-Datase.html",
       "date": "February 12, 2018",
       "summary": "The limited number of videos in current action classification datasets like UCF-101 and HMDB-51 hinders the identification of effective video architectures due to similar performance across small-scale benchmarks. This study re-examines top architectures using the new, significantly larger Kinetics Human Action Video dataset, featuring 400 classes and over 400 clips per class from challenging YouTube videos. It analyzes the impact of this dataset on the performance of existing architectures and the benefits of pre-training on Kinetics. Additionally, the paper introduces the Two-Stream Inflated 3D ConvNet (I3D), an advancement that expands 2D ConvNet designs into 3D for enhanced video feature extraction. This model, pre-trained on Kinetics, sets new benchmarks in action classification, achieving 80.9% accuracy on HMDB-51 and 98.0% on UCF-101."
+    }
+  ],
+  "flow": [
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
+    }
+  ],
+  "typography": [
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
+    }
+  ],
+  "preference": [
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
+    }
+  ],
+  "rating": [
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
+    }
+  ],
+  "correlate": [
+    {
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "url": "/research/2024/03/05/Scaling-Rectified-Flow-Transformers-for-High-Resolution-Image-Synthesis.html",
+      "date": "March 5, 2024",
+      "summary": "Diffusion models, effective for generating high-dimensional perceptual data like images, lack established standard practices. This study enhances noise sampling techniques for training rectified flow models, prioritizing perceptually relevant scales. Our large-scale study demonstrates superior performance over established diffusion methods in high-resolution text-to-image synthesis. We introduce a transformer-based architecture for text-to-image generation, improving text comprehension, typography, and human preference ratings. Our findings show predictable scaling trends, with lower validation loss correlating with improved synthesis. The largest models outperform state-of-the-art approaches, and our data, code, and model weights will be publicly accessible."
     }
   ],
   "spl": [

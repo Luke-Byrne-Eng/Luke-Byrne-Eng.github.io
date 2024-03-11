@@ -5,6 +5,6 @@ date:   1 Jan 1000
 categories: research
 paper_url: https://arxiv.org/pdf/1606.08415.pdf
 code_url: 
-summary: "This study introduces two new activation functions for neural networks in reinforcement learning, the sigmoid-weighted linear unit (SiLU) and its derivative (dSiLU), and challenges the need for experience replay and separate target networks in deep reinforcement learning. By employing on-policy learning with eligibility traces and softmax action selection, the study achieves state-of-the-art results in stochastic SZ-Tetris and a small-board Tetris using TD(λ) learning and shallow dSiLU network agents. Furthermore, it outperforms the DQN algorithm in the Atari 2600 domain with a deep Sarsa(λ) agent utilizing SiLU and dSiLU hidden units, suggesting a competitive alternative to traditional DQN approaches."
+summary: "We introduce the Gaussian Error Linear Unit (GELU), a neural network activation function that outperforms existing functions by weighting inputs by their magnitude using the standard Gaussian cumulative distribution function, unlike ReLU which gates inputs by sign. Our empirical evaluation across computer vision, natural language processing, and speech tasks shows that GELU offers performance improvements over ReLU and ELU activations."
 ---
 
