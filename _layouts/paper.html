@@ -7,24 +7,90 @@ layout: base
       padding-top: 141.42%; /*approx A4 ratio*/
       position: relative;
   }
-  
+  .dark-mode {
+    filter: invert(1.0) hue-rotate(180deg) brightness(1.2) contrast(0.75);
+  }
+
   .responsive-pdf-container iframe {
       border: none;
       height: 100%;
       left: 0;
       position: absolute;
       top: 0;
-      width: 100%;
+      width: 100%;;
   }
+
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function requestFullscreen(element) {
+      if (element.requestFullscreen) {
+        element.requestFullscreen();
+      } else if (element.webkitRequestFullscreen) { /* Safari */
+        element.webkitRequestFullscreen();
+      } else if (element.msRequestFullscreen) { /* IE11 */
+        element.msRequestFullscreen();
+      }
+    }
+
+    // Since we're now setting up event listeners after the DOM is loaded,
+    // ensure to attach this function via an event listener rather than inline 'onclick'
+    document.getElementById('fullscreenButton').addEventListener('click', function() {
+      var iframe = document.querySelector('.responsive-pdf-container iframe');
+      requestFullscreen(iframe);
+    });
+
+    function toggleDarkMode() {
+      var iframe = document.querySelector('.responsive-pdf-container iframe');
+      var button = document.getElementById('toggleDarkMode');
+      
+      iframe.classList.toggle('dark-mode');
+      
+      if (iframe.classList.contains('dark-mode')) {
+          button.textContent = 'Light Mode';
+      } else {
+          button.textContent = 'Dark Mode';
+      }
+    }
+
+    // Attach the toggle function to the button's onclick event
+    document.getElementById('toggleDarkMode').addEventListener('click', toggleDarkMode);
+
+    function applyInitialTheme() {
+        const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        var iframe = document.querySelector('.responsive-pdf-container iframe');
+        var toggleButton = document.getElementById('toggleDarkMode');
+
+        if (theme === 'dark') {
+            iframe.classList.add('dark-mode');
+            toggleButton.textContent = 'Light Mode';
+        } else {
+            // Ensure dark mode is not applied
+            iframe.classList.remove('dark-mode');
+            toggleButton.textContent = 'Dark Mode';
+        }
+    }
+
+    applyInitialTheme();
+
+  });
+</script>
+<script>
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+</script>
 
 <article class="paper">
   <h1>{{ page.title }}</h1>
   <p><i>{{ page.date | date: "%B %d, %Y" }}</i></p>
   <a href="{{ page.paper_url }}">{{ page.paper_url }}</a><br>
   {% if page.code_url %}
-  <a href="{{ page.code_url }}">{{ page.code_url }}</a>
+  <a href="{{ page.code_url }}">{{ page.code.url }}</a>
   {% endif %}
+  <br>
+  <button id="fullscreenButton">Fullscreen</button>
+  <button id="toggleDarkMode">Dark Mode</button>
   <br>
   <div class="responsive-pdf-container">
       <iframe src="{{ page.paper_url }}" style="border: none;"></iframe>
