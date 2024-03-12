@@ -1,6 +1,6 @@
 ---
 layout: paper
-title:  "Dropout Reduces Underfittin"
+title:  "Dropout Reduces Underfitting"
 date:   31 May 2023
 categories: research
 paper_url: https://arxiv.org/pdf/2303.01500.pdf
