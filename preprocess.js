@@ -56,9 +56,17 @@ const stopwords = ["algorithm", "model", "data", "results", "performance", "appr
 "variation", "variant", "scheme", "integrate", "drive", "call", "content", "it39", "strength", "demand", "affect", "prove", 
 "principle", "scenario", "view", "exhibit", "analysi", "interaction", "excel", "no", "semi", "help", "demonstrate",
 "component", "involve", "dificulty", "share", "inspire", "involve", "version", "match", "github", "com", "https", "www",
-"d", "stage", "learner", "face", "ability", "incorporate", "influence", "underlying",
+"d", "stage", "learner", "face", "ability", "incorporate", "influence", "underlying", "new", "old", "previous", "current",
+"high", "low", "medium", "best", "worst", "better", "worse", "good", "bad", "great", "small", "big", "large", "tiny",
+"over", "under", "above", "below", "before", "after", "front", "back", "left", "right", "up", "down", "in", "out", "on",
+"based", "extensive", "simple", "complex", "complicated", "difficult", "easy", "hard", "challenging", "straightforward",
+"problematic", "trivial", "significant", "insignificant", "important", "unimportant", "critical", "crucial", "vital",
+"essential", "nonessential", "necessary", "unnecessary", "required", "optional", "mandatory", "voluntary", "obligatory",
+"exist", "depth", 
 ];
 const wordMappings = {
+    "init": "initialize",
+    "initial": "initialize",
     "corrupt": "corruption",
     "overfit": "overfitting",
     "reconstruct": "reconstruction",
@@ -137,10 +145,11 @@ function preprocessText(text) {
   doc = doc.remove('#Determiner')
             .remove('#Preposition')
             .remove('#Conjunction')
+            .remove('#Possessive')
+            .remove('#Adjective')
             .remove('#Pronoun')
             .remove('#Auxiliary')
             .remove('#Interjection')
-            .remove('#Adjective')
             .remove('#Article')
             .remove('#Particle')
             .remove('#Participle')

@@ -24,6 +24,7 @@ A collection of papers I have read and liked.
 
 
 function displayAllPosts() {
+  document.querySelectorAll('#word-cloud span').forEach(el => el.classList.remove('clicked-word'));
   const postsContainer = document.getElementById('posts-container');
   if (!postsContainer) return;
   postsContainer.innerHTML = ''; // Clear previous content
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const wordPostsPairs = Object.keys(wordToPostsMap).map(word => [word, wordToPostsMap[word]]);
 
   // Sort the pairs by the number of posts in descending order and keep only the top k
-  const cloudSize = 100
+  const cloudSize = 80
   const topWords = wordPostsPairs.sort((a, b) => b[1].length - a[1].length).slice(0, cloudSize);
 
   const wordCloudContainer = document.getElementById('word-cloud');
@@ -81,7 +82,11 @@ document.addEventListener('DOMContentLoaded', function() {
     wordElement.style.cursor = 'pointer';
     wordElement.style.color = getRandomColor();
     wordElement.title = `Frequency: ${frequency}`;
-    wordElement.onclick = function() { displayPostsForWord(word); };
+    wordElement.onclick = function() {
+      displayPostsForWord(word); 
+      document.querySelectorAll('#word-cloud span').forEach(el => el.classList.remove('clicked-word'));
+      this.classList.add('clicked-word');
+      };
     wordCloudContainer.appendChild(wordElement);
     wordCloudContainer.appendChild(document.createTextNode(' ')); // For spacing
   });
@@ -162,6 +167,10 @@ function displayPostsForWord(word) {
     }
     .date-italic {
       font-style: italic;
+    }
+    .clicked-word {
+      font-weight: bold;
+      text-decoration: underline;
     }
   </style>
 </head>
