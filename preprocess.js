@@ -125,6 +125,7 @@ const wordMappings = {
     "instancenorm": "instance normalization",
     "norm": "normalization",
     "normalize": "normalization",
+    "distll": "distillation",
   };
 
 // Ensure the output directory exists
