@@ -36,6 +36,7 @@ function displayAllPosts() {
     const postLink = document.createElement('a');
     postLink.href = post.url;
     postLink.innerText = post.title;
+    postLink.target = "_blank"; // open in new tab
     
     const postDate = document.createElement('div');
     postDate.innerText = post.date;
@@ -123,6 +124,7 @@ function displayPostsForWord(word) {
       const postLink = document.createElement('a');
       postLink.href = post.url;
       postLink.innerText = post.title;
+      postLink.target = "_blank"; // open in new tab
       
       const postDate = document.createElement('div');
       postDate.innerText = post.date;

@@ -62,9 +62,11 @@ const stopwords = ["algorithm", "model", "data", "results", "performance", "appr
 "based", "extensive", "simple", "complex", "complicated", "difficult", "easy", "hard", "challenging", "straightforward",
 "problematic", "trivial", "significant", "insignificant", "important", "unimportant", "critical", "crucial", "vital",
 "essential", "nonessential", "necessary", "unnecessary", "required", "optional", "mandatory", "voluntary", "obligatory",
-"exist", "depth", 
+"exist", "depth", "dnn", "replace", "point", "combine", "combination",
 ];
 const wordMappings = {
+    "minimum": "minima", 
+    "stable": "stability",
     "init": "initialize",
     "initial": "initialize",
     "corrupt": "corruption",
@@ -99,7 +101,6 @@ const wordMappings = {
     "conv": "convolution",
     "adaptive": "adapt",
     "adaptation": "adapt",
-    "combine": "combination",
     "invariant": "invariance", 
     "shoot": "shot",
     "tune": "tuning",
