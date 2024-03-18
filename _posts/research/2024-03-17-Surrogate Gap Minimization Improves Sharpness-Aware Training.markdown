@@ -1,7 +1,6 @@
 ---
 layout: paper
-title:  "Surrogate Gap Minimization
-Improves Sharpness-Aware Training"
+title:  "Surrogate Gap Minimization Improves Sharpness-Aware Training"
 date:   19 Mar 2022
 categories: research
 paper_url: https://arxiv.org/pdf/2203.08065.pdf
