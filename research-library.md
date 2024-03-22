@@ -4,7 +4,7 @@ title: Research Library
 permalink: /research-library/
 ---
 
-A collection of papers I have read and liked. 
+A collection of papers I have read and liked. Click a word to filter the collection.
 
 
 <script>
