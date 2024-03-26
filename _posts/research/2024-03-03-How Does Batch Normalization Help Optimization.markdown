@@ -5,6 +5,6 @@ date:   15 Apr 2019
 categories: research
 paper_url: https://arxiv.org/pdf/1805.11604.pdf
 code_url: 
-summary: "Batch Normalization (BatchNorm) is a widely adopted technique that enables faster and more stable training of deep neural networks (DNNs). Despite its pervasiveness, the exact reasons for BatchNorm’s effectiveness are still poorly understood. The popular belief is that this effectiveness stems from controlling the change of the layers’ input distributions during training to reduce the so-called “internal covariate shift”. In this work, we demonstrate that such distributional stability of layer inputs has little to do with the success of BatchNorm. Instead, we uncover a more fundamental impact of BatchNorm on the training process: it makes the optimization landscape significantly smoother. This smoothness induces a more predictive and stable behavior of the gradients, allowing for faster training"
+summary: "The Batch Normalization paper argued the method's effectiveness came from reducing internal covariate shift. In this paper the authors argue that actually the main benifit of Batch Norm is loss landscape smoothing."
 ---
 

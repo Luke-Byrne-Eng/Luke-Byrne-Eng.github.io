@@ -5,6 +5,6 @@ date:   18 Aug 2023
 categories: research
 paper_url: https://arxiv.org/pdf/2306.13812.pdf
 code_url: https://github.com/shibhansh/loss-of-plasticity
-summary: "Modern deep-learning systems, designed for one-time training, struggle in continual-learning environments where training is ongoing. They not only forget previous examples but also lose the ability to learn new ones, known as loss of plasticity. This was demonstrated using MNIST and ImageNet datasets adapted for continual learning. On the 2000th task in ImageNet, accuracy fell from 89% to 77%, similar to a linear network. Various architectures and techniques were tested, with L2-regularization and weight perturbation somewhat mitigating the issue. A new approach, continual backpropagation, which slightly alters backpropagation to periodically reinitialize less-used units, shows promise in maintaining learning ability indefinitely. "
+summary: "Most deep learning systems are designed to be trained once, or possibly pretrained and fintuned. These systems perform quite poorly in continual learning setups where training is ongoing. This is primarily due to two problems: catastrophic forgetting and loss of plasticity. This paper addresses the second. Various architectures and techniques were tested, with L2-regularization and shrink and perturm improving plasticity a little. This paper then introduces Continual Backpropagation, which reinitializes dead units, and seems to maintain plasticity indefinitely "
 ---
 

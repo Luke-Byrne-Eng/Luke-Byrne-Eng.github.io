@@ -5,6 +5,6 @@ date:   7 Jun 2016
 categories: research
 paper_url: https://arxiv.org/pdf/1606.01981.pdf
 code_url: 
-summary: "Recent studies reveal that deep neural networks maintain high performance levels even when trained with binary quantized weights, but this is just a beginning. These networks also show significant resilience to various test-time distortions, including noise and non-linear projections, with robustness extending beyond binary quantization. For instance, a network demonstrated only 11% error on CIFAR-10 with less than one effective bit per weight. Surprisingly, some conventional training adjustments, like weight quantization during backpropagation, can be modified or omitted without sacrificing this robustness. Experiments confirmed these findings on CIFAR-10 and ImageNet, leading to the proposal of a stochastic projection rule that sets a new benchmark of 7.64% error on CIFAR-10 without data augmentation."
+summary: "Recent studies reveal that deep neural networks maintain high performance levels even when trained with binary quantized weights. This paper shows deep networks have significant resilience to various test-time distortions, including noise and non-linear projections, with robustness extending beyond binary quantization. The authors propose a stochastic projection rule that sets a new benchmark CIFAR-10 without data augmentation."
 ---
 

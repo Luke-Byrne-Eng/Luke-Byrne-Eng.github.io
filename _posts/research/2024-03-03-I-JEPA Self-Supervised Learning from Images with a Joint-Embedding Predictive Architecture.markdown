@@ -5,6 +5,6 @@ date:   13 Apr 2023
 categories: research
 paper_url: https://arxiv.org/pdf/2301.08243.pdf
 code_url: 
-summary: "This paper introduces the Image-based Joint-Embedding Predictive Architecture (I-JEPA) for learning semantic image representations without hand-crafted data augmentations. By predicting the representations of different image blocks from a single context block, I-JEPA generates meaningful representations using a strategic masking approach. When applied with Vision Transformers, I-JEPA shows scalability and efficiency, achieving strong performance in various tasks like classification and depth prediction on ImageNet with a ViT-Huge/14 and 16 A100 GPUs in under 72 hours."
+summary: "This paper introduces the Image-based Joint-Embedding Predictive Architecture (I-JEPA) for learning semantic image representations without hand-crafted data augmentations. This self-supervised method uses multiple crops of an image. Given a context crop the network is trained to predict the embeddings of several target crops. When applied to Vision Transformers, I-JEPA acheived strong performance in various tasks like image classification and depth prediction, outperforming Masked Auto Encoding (MAE) in linear probing when controlling for compute."
 ---
 
