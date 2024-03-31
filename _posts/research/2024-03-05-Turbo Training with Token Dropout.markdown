@@ -5,6 +5,6 @@ date:   10 Oct 2022
 categories: research
 paper_url: https://arxiv.org/pdf/2210.04889.pdf
 code_url: 
-summary: "This paper introduces Turbo training, an efficient training method for video-related tasks using Transformers. Turbo training offers three major contributions: Firstly, it presents a simple yet versatile training paradigm applicable to multiple video tasks. Secondly, it demonstrates Turbo training's effectiveness across action classification, video-language representation learning, and long-video activity classification, achieving competitive performance with up to 4× speed-up and reduced memory usage. Thirdly, it enables long-schedule video-language training and end-to-end long-video training with limited resources, outperforming or matching previous methods that were resource-intensive."
+summary: "This paper introduces Turbo training, an efficient method for training Transformers on video-related tasks. The authors present a simple yet versatile training paradigm applicable to multiple video tasks and demonstrate its effectiveness across action classification, video-language representation learning, and long-video activity classification. Turbo training achieves competitive performance with up to 4× speed-up and reduced memory usage, enabling long-schedule video-language training and end-to-end long-video training with limited resources, outperforming or matching previous resource-intensive methods.."
 ---
 

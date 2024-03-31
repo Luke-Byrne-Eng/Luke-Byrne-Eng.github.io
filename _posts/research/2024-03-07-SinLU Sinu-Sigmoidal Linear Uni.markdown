@@ -3,8 +3,8 @@ layout: paper
 title:  "SinLU: Sinu-Sigmoidal Linear Uni"
 date:   2 Dec 2021
 categories: research
-paper_url: 
+paper_url: https://www.mdpi.com/2227-7390/10/3/337/pdf?version=1643007217
 code_url: 
-summary: "Non-linear activation functions play a crucial role in deep neural networks, influencing computational complexity and approximation capabilities. Introducing learnable parameters to activation functions typically enhances performance. This study introduces Sinu-sigmoidal Linear Unit (SinLU), formulated as SinLU(x) = (x + a sin bx) · σ(x), integrating a sine wave for added functionality over traditional linear units. Two trainable parameters control sinusoidal participation, facilitating easy training and fast convergence. SinLU's performance is compared to ReLU, GELU, and SiLU across various domains and models on standard datasets, demonstrating its robustness and superior performance due to its incorporation of trainable sine wave parameters."
+summary: "This paper introduces a non-linear activation function called the Sinu-sigmoidal Linear Unit (SinLU), formulated as SinLU(x) = (x + a sin bx) · σ(x). It incorporates a sine wave for added functionality over traditional linear units, with two trainable parameters controlling the sinusoidal participation. The authors compare SinLU's performance to ReLU, GELU, and SiLU across various domains, models, and standard datasets. The results demonstrate SinLU's robustness and superior performance due to the incorporation of the trainable sine wave parameters, facilitating easy training and fast convergence."
 ---
 

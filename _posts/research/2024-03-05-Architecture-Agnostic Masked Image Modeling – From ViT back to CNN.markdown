@@ -5,6 +5,6 @@ date:   2 Jun 2023
 categories: research
 paper_url: https://arxiv.org/pdf/2205.13943.pdf
 code_url: 
-summary: "Masked image modeling (MIM), a self-supervised pre-training method, has proven effective in vision tasks using Vision transformers by masking part of an image and reconstructing it. However, its compatibility with CNNs and operational principle are unclear. This study reveals that MIM improves generalized feature extraction through middle-order interactions among patches and introduces an Architecture-Agnostic Masked Image Modeling framework (A2MIM) that works with both Transformers and CNNs. Our extensive testing demonstrates that A2MIM enhances representation learning and transferability to various tasks without specialized modifications"
+summary: "Masked image modeling (MIM), a self-supervised pre-training method, enhances vision tasks using Vision transformers by masking and reconstructing parts of an image. The compatibility of MIM with CNNs and its operational principle are unclear. this study reveals that MIM improves generalized feature extraction through middle-order patch interactions and introduces Architecture-Agnostic Masked Image Modeling (A2MIM), compatible with both Transformers and CNNs. Extensive testing demonstrates A2MIM's ability to enhance representation learning and transferability to various tasks without specialized modifications."
 ---
 

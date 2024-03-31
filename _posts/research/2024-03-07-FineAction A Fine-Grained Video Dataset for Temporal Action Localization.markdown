@@ -5,6 +5,6 @@ date:   20 Oct 2022
 categories: research
 paper_url: https://arxiv.org/pdf/2105.11107v3.pdf
 code_url: 
-summary: "Temporal action localization (TAL) is crucial for video understanding but is hindered by benchmarks that rely on coarse action classes, leading to model overfitting and ambiguous annotations. Addressing these issues, we introduce FineAction, a large-scale, fine-grained video dataset with 103K instances across 106 action categories in 17K videos. FineAction offers a diverse, densely annotated dataset with co-occurring actions, posing new challenges for TAL. We evaluated popular localization methods on FineAction, revealing the impact of fine-grained instances on performance, and proposed a baseline method achieving a 13.17% mAP. FineAction aims to propel TAL research forward and is accessible online."
+summary: "This paper introduces FineAction, a large-scale, fine-grained video dataset designed to address the limitations of current temporal action localization (TAL) benchmarks, which rely on coarse action classes and lead to model overfitting and ambiguous annotations. FineAction contains 103K instances across 106 action categories in 17K videos, offering a diverse and densely annotated dataset with co-occurring actions that pose new challenges for TAL. The authors evaluate popular localization methods on FineAction, revealing the impact of fine-grained instances on performance, and propose a baseline method achieving a 13.17% mAP. FineAction aims to advance TAL research and is accessible online."
 ---
 

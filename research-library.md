@@ -7,6 +7,41 @@ permalink: /research-library/
 A collection of papers I have read and liked.
 Click a word to filter the collection.
 
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+  }
+
+  #back-to-top:hover {
+    background-color: #333;
+  }
+</style>
+
+<script>
+  window.onscroll = function() {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById('back-to-top').style.display = 'block';
+    } else {
+      document.getElementById('back-to-top').style.display = 'none';
+    }
+  }
+</script>
 
 <script>
   // Load the precomputed word-to-posts map
@@ -94,6 +129,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   displayAllPosts(); // Initially show all posts
+
+  // Add Back-To-Top button
+    document.getElementById('back-to-top').addEventListener('click', function() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
 });
 
 function getRandomColor() {
@@ -185,3 +226,4 @@ function displayPostsForWord(word) {
 <br><br>
 <div id="posts-container"></div>
 
+<button id="back-to-top" title="Go to top">&#8593;</button>

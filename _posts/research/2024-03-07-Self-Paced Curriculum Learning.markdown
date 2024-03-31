@@ -5,6 +5,6 @@ date:   1 Jan 2015
 categories: research
 paper_url: https://cdn.aaai.org/ojs/9608/9608-13-13136-1-2-20201228.pdf
 code_url: 
-summary: "Curriculum learning (CL) and self-paced learning (SPL) are methods inspired by the incremental complexity of human and animal learning, with CL using a fixed curriculum based on prior knowledge and SPL adjusting dynamically to the learner's pace but struggling with prior knowledge and overfitting. This paper introduces a unified framework called self-paced curriculum learning (SPCL), blending both methods' strengths by considering prior knowledge and ongoing learning progress through a concise optimization problem. SPCL mimics a collaborative instructor-student learning mode, showing empirical advantages in two tasks."
+summary: "This paper introduces self-paced curriculum learning (SPCL), a unified framework combining curriculum learning (CL) and self-paced learning (SPL). SPCL leverages prior knowledge and ongoing learning progress through an optimization problem. It mimics collaborative instructor-student learning, exhibiting empirical advantages in two tasks."
 ---
 
