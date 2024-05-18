@@ -3,7 +3,7 @@ layout: paper
 title:  "DropKey"
 date:   11 Apr 2023
 categories: research
-paper_url: https://arxiv.org/pdf/2208.02646.pdf
+paper_url: https://arxiv.org/pdf/2208.02646
 code_url: 
 summary: "This paper presents DropKey, a method for dropout in Transformer's self-attention layers, addressing three main aspects ignored by previous studies. Firstly, it introduces a dropout-before-softmax scheme by applying dropout to the Key before attention matrix calculation, maintaining regularization and attention weight probability features. Secondly, it proposes a decreasing drop ratio schedule across layers to balance feature retention and prevent overfitting. Thirdly, it evaluates the necessity of structured dropout, like in CNNs, and concludes it's not essential for Vision Transformers."
 ---
