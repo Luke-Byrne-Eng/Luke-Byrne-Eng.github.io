@@ -4,22 +4,20 @@ layout: base
 <style>
   .responsive-pdf-container {
       overflow: hidden;
-      padding-top: 141.42%; /*approx A4 ratio*/
+      padding-top: 141.42%; /* Approx A4 ratio */
       position: relative;
   }
   .dark-mode {
     filter: invert(1.0) hue-rotate(180deg) saturate(1.0) brightness(1.2) contrast(0.8);
   }
-
   .responsive-pdf-container iframe {
       border: none;
       height: 100%;
       left: 0;
       position: absolute;
       top: 0;
-      width: 100%;;
+      width: 100%;
   }
-
 </style>
 
 <script>
@@ -34,8 +32,6 @@ layout: base
       }
     }
 
-    // Since we're now setting up event listeners after the DOM is loaded,
-    // ensure to attach this function via an event listener rather than inline 'onclick'
     document.getElementById('fullscreenButton').addEventListener('click', function() {
       var iframe = document.querySelector('.responsive-pdf-container iframe');
       requestFullscreen(iframe);
@@ -54,7 +50,6 @@ layout: base
       }
     }
 
-    // Attach the toggle function to the button's onclick event
     document.getElementById('toggleDarkMode').addEventListener('click', toggleDarkMode);
 
     function applyInitialTheme() {
@@ -66,34 +61,27 @@ layout: base
             iframe.classList.add('dark-mode');
             toggleButton.textContent = 'Light Mode';
         } else {
-            // Ensure dark mode is not applied
             iframe.classList.remove('dark-mode');
             toggleButton.textContent = 'Dark Mode';
         }
     }
 
     applyInitialTheme();
-
   });
-</script>
-<script>
-const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-
 </script>
 
 <article class="paper">
   <h1>{{ page.title }}</h1>
   <p><i>{{ page.date | date: "%B %d, %Y" }}</i></p>
-  <a href="{{ page.paper_url }}">{{ page.paper_url }}</a><br>
+  <a href="{{ page.paper_url | replace: 'http://', 'https://' }}">{{ page.paper_url | replace: 'http://', 'https://' }}</a><br>
   {% if page.code_url %}
-  <a href="{{ page.code_url }}">{{ page.code.url }}</a>
+  <a href="{{ page.code_url }}">{{ page.code_url }}</a>
   {% endif %}
   <br>
   <button id="fullscreenButton">Fullscreen</button>
   <button id="toggleDarkMode">Dark Mode</button>
   <br>
   <div class="responsive-pdf-container">
-      <iframe src="{{ page.paper_url }}" style="border: none;"></iframe>
+      <iframe src="{{ page.paper_url | replace: 'http://', 'https://' }}" style="border: none;"></iframe>
   </div>
 </article>
-
