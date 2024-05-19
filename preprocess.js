@@ -180,6 +180,7 @@ function preprocessText(text) {
 
 // Read and process all posts
 let wordToPostsMap = {};
+let wordFrequency = {};
 
 const normalizeCategories = (categories) => {
     if (Array.isArray(categories)) {
@@ -218,6 +219,11 @@ fs.readdirSync(postsDirectory).forEach(file => {
   
           // Avoid duplicate entries
           if (!wordToPostsMap[word].some(post => post.url === url)) {
+            // Update word frequency
+            if (!wordFrequency[word]) {
+              wordFrequency[word] = 0;
+            }
+            wordFrequency[word]++;
             wordToPostsMap[word].push({
               title: frontMatter.title,
               url: url,
@@ -233,6 +239,18 @@ fs.readdirSync(postsDirectory).forEach(file => {
       }
     }
   });
+
+// Get the top 100 keywords by frequency
+const topKeywords = Object.entries(wordFrequency)
+  .sort(([, a], [, b]) => b - a)
+  .slice(0, 100)
+  .map(([word]) => word);
+
+// Filter the wordToPostsMap to include only the top 100 keywords
+let filteredWordToPostsMap = {};
+topKeywords.forEach(word => {
+  filteredWordToPostsMap[word] = wordToPostsMap[word];
+});
 
 fs.writeFileSync(path.join(outputDirectory, 'wordToPostsMap.json'), JSON.stringify(wordToPostsMap, null, 2));
 

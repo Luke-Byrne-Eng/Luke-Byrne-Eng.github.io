@@ -170,10 +170,9 @@ word_to_posts_map = {}
 for file in posts_directory.glob('*.markdown'):
     with file.open('r', encoding='utf-8') as f:
         content = f.read()
-        front_matter = content.split('---\n', 2)[1:]
+        front_matter, _ = content.split('---\n', 2)[1:]
 
     if 'categories' in front_matter and 'research' in front_matter['categories']:
-        print("x")
         words = preprocess_text(f"{front_matter['title']} {front_matter['summary']}")
         post_date = date_parser.parse(front_matter['date'])
         year = post_date.year
