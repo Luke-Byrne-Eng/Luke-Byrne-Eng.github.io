@@ -1,1 +1,27 @@
 // Placeholder to allow overriding predefined variables smoothly.
+
+@font-face {
+  font-family: 'serif_custom';
+  src: url("../../sitka.ttf");
+}
+
+@font-face {
+  font-family: 'sans_custom';
+  src: url("../../Atkinson.ttf");
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: serif_custom;
+  }
+
+.site-title {
+  font-family: serif_custom;
+}
+
+.site-nav {
+  font-family: serif_custom;
+}
+
+.post-content{
+  font-family: sans_custom;
+}
