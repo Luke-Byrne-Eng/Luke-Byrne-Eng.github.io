@@ -18,6 +18,7 @@ layout: base
 
 
   {%- if posts.size > 0 -%}
+</br></br>
     {%- if page.list_title -%}
       <h2 class="post-list-heading">{{ page.list_title }}</h2>
     {%- endif -%}
@@ -31,6 +32,9 @@ layout: base
             {{ post.title | escape }}
           </a>
         </h3>
+        {%- if post.summary -%}
+          {{ post.summary }}
+        {%- endif -%}
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
         {%- endif -%}

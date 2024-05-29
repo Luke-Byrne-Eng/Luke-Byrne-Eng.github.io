@@ -1,27 +1,9 @@
 // Placeholder to allow overriding predefined variables smoothly.
 
-@font-face {
-  font-family: 'serif_custom';
-  src: url("../../sitka.ttf");
-}
-
-@font-face {
-  font-family: 'sans_custom';
-  src: url("../../Atkinson.ttf");
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: serif_custom;
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+.site-title {
+    font-weight: bold;
   }
 
-.site-title {
-  font-family: serif_custom;
-}
 
-.site-nav {
-  font-family: serif_custom;
-}
-
-.post-content{
-  font-family: sans_custom;
-}
+$base-font-family: "Averia Serif Libre", serif;

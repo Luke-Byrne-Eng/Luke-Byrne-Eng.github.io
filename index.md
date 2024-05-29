@@ -1,6 +1,6 @@
 ---
 layout: home
-title: 
+list_title: 
 ---
 
 <html>
@@ -12,23 +12,35 @@ title:
 }
 
 img {
-    flex: 50%;
+    flex: 40%;
   }
 
 .text {
-    font-family: serif;
     text-align: left;
-    flex: 50%;
+    flex: 60%;
     padding-left: 50px;
 }
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text {
+    padding-left: 0;
+    padding-top: 10px;
+  }
+}
   </style>
+
   <body>
     <div class="container">
       <div class="image">
         <img src="Tomato_small.png">
       </div>
       <div class="text">
-        <h1>I'm Luke</h1><h3>I'm an engineer from Scotland. I used to design robots, but now I'm doing a PhD in machine vision. I use this website to collect research papers I've read and loved, and to journal my ideas.</h3>
+        <h1>I'm Luke</h1><h3>I used to design robots; now I'm doing a PhD in machine vision. I use this website to collect research papers I've read and loved, and to journal my ideas.</h3>
       </div>
     </div>
   </body>
