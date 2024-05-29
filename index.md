@@ -40,7 +40,7 @@ img {
         <img src="Tomato_small.png">
       </div>
       <div class="text">
-        <h1>I'm Luke</h1><h3>I used to design robots; now I'm doing a PhD in machine vision. I use this website to collect research papers I've read and loved, and to journal my ideas.</h3>
+        <h1>I'm Luke</h1>I used to design robots; now I'm doing a PhD in machine vision. I use this website to collect research papers I've read and loved, and to journal my ideas.
       </div>
     </div>
   </body>

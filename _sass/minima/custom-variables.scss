@@ -1,9 +1,37 @@
 // Placeholder to allow overriding predefined variables smoothly.
 
 @import url('//fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Corben:wght@400;700&display=swap');
+
 .site-title {
-    font-weight: bold;
+    font-weight: 700;
+    font-family: "Corben", serif;
   }
 
+.site-nav{
+    font-family: "Averia Serif Libre", serif;
+    font-weight: bold;
+}
 
-$base-font-family: "Averia Serif Libre", serif;
+.post h1, .post h2, .post h3, .post h4, .post h5, .post h6 {
+    font-family: "Averia Serif Libre", serif;
+    font-weight: 700;
+}
+
+.page h1, .page h2, .page h3, .page h4, .page h5, .page h6 {
+    font-family: "Averia Serif Libre", serif;
+    font-weight: 700;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Averia Serif Libre", serif;
+    font-weight: 700;
+}
+
+.post.title {
+    font-family: "Corben", serif;
+    font-weight: 700;
+
+}
+
+$base-font-family: "Atkinson Hyperlegible", sans-serif;
