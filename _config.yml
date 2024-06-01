@@ -23,7 +23,7 @@ email: luke.byrne@strath.ac.uk
 description: >- # this means to ignore newlines until "baseurl:"
   Personal website of Luke Byrne, a PhD student at the University of Strathclyde.
   Research focuses on AI for video processing, and animal behaviour.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://lukebyrne.uk" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  Luke-Byrne-Eng
 
