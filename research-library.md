@@ -77,12 +77,12 @@ function displayAllPosts() {
     const postDate = document.createElement('div');
     postDate.innerText = post.date;
     postDate.className = 'date-italic';
+    postDate.style.color = '#0197d3';
     
     const postSummary = document.createElement('div');
     postSummary.innerText = post.summary;
 
-    postItem.appendChild(postLink);
-    postItem.appendChild(document.createElement('br'));
+    postItem.appendChild(document.createElement('h4')).appendChild(postLink);
     postItem.appendChild(postDate);
     postItem.appendChild(postSummary);
     postItem.appendChild(document.createElement('br'));
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   topWords.forEach(([word, posts]) => {
     const frequency = posts.length;
-    const basefontsize = 16
+    const basefontsize = 20
     const scale = (frequency - minFrequency) / (maxFrequency - minFrequency);
     const fontSize = basefontsize + (scale * basefontsize); // 16px is the base size, and we scale up to double this size
 
@@ -118,6 +118,8 @@ document.addEventListener('DOMContentLoaded', function() {
     wordElement.innerText = word;
     wordElement.style.cursor = 'pointer';
     wordElement.style.color = getRandomColor();
+    wordElement.style.fontFamily = "Averia Serif Libre";
+    wordElement.style.fontWeight = "bold";
     wordElement.title = `Frequency: ${frequency}`;
     wordElement.onclick = function() {
       displayPostsForWord(word); 
@@ -171,12 +173,12 @@ function displayPostsForWord(word) {
       const postDate = document.createElement('div');
       postDate.innerText = post.date;
       postDate.className = 'date-italic';
+      postDate.style.color = '#0197d3';
       
       const postSummary = document.createElement('div');
       postSummary.innerText = post.summary;
 
-      postItem.appendChild(postLink);
-      postItem.appendChild(document.createElement('br'));
+      postItem.appendChild(document.createElement('h4')).appendChild(postLink);
       postItem.appendChild(postDate);
       postItem.appendChild(postSummary);
       postItem.appendChild(document.createElement('br'));
@@ -204,8 +206,8 @@ function displayPostsForWord(word) {
       line-height: 0.9;
     }
     #word-cloud span {
-      margin-right: 4px; /* Horizontal spacing between words */
-      margin-left: 4px; /* Horizontal spacing between words */
+      margin-right: 10px; /* Horizontal spacing between words */
+      margin-left: 10px; /* Horizontal spacing between words */
       margin-top: 4px; /* Vertical spacing between lines of words */
       margin-bottom: 4px; /* Vertical spacing between lines of words */
     }
@@ -221,6 +223,7 @@ function displayPostsForWord(word) {
 
 
 <div id="word-cloud"></div>
+<br>
 <button id="show-all-posts">Show All Posts</button>
 <script> document.getElementById('show-all-posts').addEventListener('click', displayAllPosts); </script>
 <br><br>
