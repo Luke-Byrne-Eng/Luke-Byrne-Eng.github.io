@@ -96,9 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Convert wordToPostsMap to an array of [word, posts] pairs
   const wordPostsPairs = Object.keys(wordToPostsMap).map(word => [word, wordToPostsMap[word]]);
 
-  // Sort the pairs by the number of posts in descending order and keep only the top k
-  const cloudSize = 80
-  const topWords = wordPostsPairs.sort((a, b) => b[1].length - a[1].length).slice(0, cloudSize);
+  // Sort the pairs by the number of posts in descending order
+  const topWords = wordPostsPairs.sort((a, b) => b[1].length - a[1].length)
 
   const wordCloudContainer = document.getElementById('word-cloud');
   wordCloudContainer.innerHTML = ''; // Clear previous word cloud, if any

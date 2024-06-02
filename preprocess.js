@@ -63,9 +63,10 @@ const stopwords = ["algorithm", "model", "data", "results", "performance", "appr
 "problematic", "trivial", "significant", "insignificant", "important", "unimportant", "critical", "crucial", "vital",
 "essential", "nonessential", "necessary", "unnecessary", "required", "optional", "mandatory", "voluntary", "obligatory",
 "exist", "depth", "dnn", "replace", "point", "combine", "combination", "author", "setting", "lack", "solve", 
-""
+"limitation", 
 ];
 const wordMappings = {
+    "optimizer": "optimization",
     "minimum": "minima", 
     "stable": "stability",
     "init": "initialize",
@@ -100,8 +101,6 @@ const wordMappings = {
     "distil": "distillation",
     "outofdistribution": "distribution",
     "conv": "convolution",
-    "adaptive": "adapt",
-    "adaptation": "adapt",
     "invariant": "invariance", 
     "shoot": "shot",
     "tune": "tuning",
@@ -112,6 +111,7 @@ const wordMappings = {
     "datasets": "dataset",
     "images": "image",
     "regularize": "regularization",
+    "regularise": "regularization",
     "generalize": "generalization",
     "detect": "detection",
     "supervise": "supervision",
@@ -253,5 +253,5 @@ topKeywords.forEach(word => {
   filteredWordToPostsMap[word] = wordToPostsMap[word];
 });
 
-fs.writeFileSync(path.join(outputDirectory, 'wordToPostsMap.json'), JSON.stringify(wordToPostsMap, null, 2));
+fs.writeFileSync(path.join(outputDirectory, 'wordToPostsMap.json'), JSON.stringify(filteredWordToPostsMap, null, 2));
 
