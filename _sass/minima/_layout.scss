@@ -284,11 +284,6 @@
   h6 {
     @include relative-font-size(1.0625);
   }
-
-  meta{
-    font-size: $small-font-size;
-    color: $brand-color;
-  }
 }
 
 

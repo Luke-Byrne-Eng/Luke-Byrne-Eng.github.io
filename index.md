@@ -18,8 +18,7 @@ img {
 .text {
     text-align: left;
     flex: 60%;
-    padding-left: 50px;
-}
+    padding-left: 50px;}
 
 @media (max-width: 768px) {
   .container {
